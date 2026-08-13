@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="DEEDS is a project-based learning framework that organizes student work around real community challenges. Five phases guide the work: Discover, Examine, Engineer, Do, and Share. Each builds toward something meaningful.">
+<title>DEEDS: Learning That Matters</title>
+<link rel="stylesheet" href="revx.css">
+<style>
+
+/* ── Hero ── */
+.hero-banner {
+  position: relative; min-height: 440px;
+  background: url('assets/THE-MODEL-1-scaled.jpg') center/cover no-repeat;
+  display: flex; align-items: flex-end;
+}
+.hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.1) 65%, transparent);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  padding: 0 48px 44px;
+}
+.hero-content h1 { color: #fff; margin-bottom: 12px; font-size: clamp(28px, 4vw, 54px); }
+.hero-content p  { color: rgba(255,255,255,0.88); font-weight: 300; font-size: 17px; max-width: 58ch; line-height: 1.65; }
+
+/* ── Tab bar ── */
+.tab-bar {
+  border-bottom: 2px solid var(--gray-200);
+  background: var(--gray-100);
+  position: sticky; top: 80px; z-index: 10;
+}
+.tab-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; padding: 0 48px;
+}
+.tab-btn {
+  padding: 14px 22px;
+  font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  border: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+  background: transparent; color: #888; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.tab-btn.active { color: var(--tab-color); border-bottom-color: var(--tab-color); }
+.tab-btn:hover:not(.active) { color: #555; }
+
+/* ── Tab panels ── */
+.tab-panel { display: none; padding: 36px 48px; max-width: 1200px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+.tab-eyebrow {
+  font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--tab-color);
+  display: block; margin-bottom: 6px;
+}
+.tab-heading {
+  font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 24px;
+  text-transform: uppercase; color: var(--gray-900);
+  margin-bottom: 12px; line-height: 1.1; text-shadow: none;
+}
+.tab-body { font-weight: 300; font-size: 15px; color: var(--gray-700); max-width: 68ch; line-height: 1.65; margin-bottom: 20px; }
+
+.points-list { border: 1px solid var(--gray-200); margin-bottom: 18px; }
+.point-row {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--gray-200);
+  border-left: 3px solid var(--tab-color);
+}
+.point-row:last-child { border-bottom: none; }
+.point-title { font-weight: 700; font-size: 14px; color: var(--gray-900); display: block; margin-bottom: 3px; }
+.point-body  { font-weight: 300; font-size: 13px; color: var(--gray-700); line-height: 1.55; }
+
+.examples-box {
+  background: rgba(0,170,200,0.04);
+  border: 1px solid rgba(0,170,200,0.2);
+  border-left: 3px solid var(--tab-color);
+  padding: 14px 18px; margin-bottom: 16px;
+}
+.examples-label {
+  font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--tab-color); margin-bottom: 10px; display: block;
+}
+.example-item { display: flex; gap: 8px; margin-bottom: 6px; }
+.example-item:last-child { margin-bottom: 0; }
+.example-dash { color: var(--tab-color); font-weight: 700; flex-shrink: 0; font-size: 13px; }
+.example-text { font-weight: 300; font-size: 13px; color: var(--gray-700); line-height: 1.55; }
+
+.note-box { background: var(--gray-100); border: 1px solid var(--gray-200); padding: 14px 18px; }
+.note-label { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--gray-900); display: block; margin-bottom: 4px; }
+.note-body  { font-weight: 300; font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+
+.formula-block {
+  background: var(--gray-100); border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--engineer);
+  padding: 18px 22px; margin-bottom: 18px;
+}
+.formula-label-text {
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 1.5px; color: var(--cyan);
+  margin-bottom: 10px; display: block;
+}
+.formula-text {
+  font-family: 'Oswald', sans-serif; font-weight: 700;
+  font-size: clamp(16px, 2vw, 22px); text-transform: uppercase;
+  color: var(--gray-900); line-height: 1.25;
+}
+.formula-text em { color: var(--blue-dark); font-style: normal; }
+
+/* ── Resources ── */
+.resources-section {
+  padding: 40px 48px 52px;
+  border-top: 1px solid var(--gray-200);
+  max-width: 1200px; margin: 0 auto;
+}
+.resources-eyebrow {
+  font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan);
+  display: block; margin-bottom: 8px;
+}
+.resources-heading {
+  font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px;
+  text-transform: uppercase; color: var(--gray-900);
+  margin-bottom: 8px; text-shadow: none;
+}
+.resources-subhead { font-weight: 300; font-size: 15px; color: var(--gray-700); margin-bottom: 28px; max-width: 58ch; }
+.docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.doc-card {
+  background: #fff; border: 1px solid var(--gray-200); border-radius: 4px;
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
+  text-decoration: none; transition: box-shadow .18s, transform .15s;
+}
+.doc-card:hover { box-shadow: 2px 4px 12px rgba(0,0,0,0.08); transform: translateY(-1px); }
+.doc-card-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; color: var(--gray-900); display: block; }
+.doc-card-desc  { font-weight: 300; font-size: 13px; color: var(--gray-700); line-height: 1.55; flex: 1; }
+.doc-card-link  { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cyan); margin-top: 4px; display: inline-block; }
+.doc-card:hover .doc-card-link { color: var(--red); }
+
+/* ── Phase strip ── */
+.phase-strip { padding: 40px 0 52px; background: var(--gray-100); border-top: 1px solid var(--gray-200); }
+.phase-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.phase-strip-eyebrow { font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); display: block; margin-bottom: 8px; }
+.phase-strip-heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase; color: var(--gray-900); margin-bottom: 20px; text-shadow: none; }
+.phase-cards-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.phase-card {
+  background: #fff; border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--pc); border-radius: 0;
+  padding: 18px 16px 20px; text-decoration: none; display: block;
+  transition: transform .15s, box-shadow .15s;
+}
+.phase-card:hover { transform: translateY(-2px); box-shadow: 2px 4px 10px rgba(0,0,0,0.08); }
+.phase-card-num  { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pc); margin-bottom: 5px; display: block; }
+.phase-card-name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase; color: var(--gray-900); margin-bottom: 6px; display: block; }
+.phase-card-desc { font-size: 12px; color: var(--gray-700); line-height: 1.5; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  #tab-agency .tab-panel > div[style*="grid"] { grid-template-columns: 1fr; }
+  .hero-content, .tab-bar-inner, .tab-panel,
+  .resources-section, .phase-strip-inner { padding-left: 20px; padding-right: 20px; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .phase-cards-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .phase-cards-grid { grid-template-columns: 1fr; }
+  .tab-btn { padding: 12px 12px; font-size: 12px; }
+}
+.video-embed { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
+.video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ── NAV ── -->
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <div class="site-nav-inner">
+    <a href="index.html" class="site-nav-brand">
+      <img src="assets/revx-logo.png" alt="RevX logo" />
+      <img src="assets/full-pentagon.png" alt="" aria-hidden="true" style="height:30px; opacity:0.9; margin-left:4px;" />
+      <span class="site-nav-brand-label">DEEDS</span>
+    </a>
+    <div class="site-nav-links">
+      <a href="index.html" class="site-nav-link active">Home</a>
+      <div class="site-nav-dropdown">
+        <button class="site-nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">The Five Phases <span class="dropdown-caret">▾</span></button>
+        <div class="site-nav-dropdown-menu">
+          <a href="discover.html"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
+          <a href="examine.html"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
+          <a href="engineer.html"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
+          <a href="do.html"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
+          <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
+        </div>
+      </div>
+      <a href="examples.html" class="site-nav-link">Examples</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- ── HERO ── -->
+  <div class="hero-banner" aria-label="Page hero">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <h1 style="font-size:clamp(48px,8vw,96px);font-weight:900;letter-spacing:-0.01em;margin-bottom:8px;">DEEDS</h1>
+      <p style="font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,0.88);font-weight:300;max-width:52ch;line-height:1.5;">A K–12 learning model that connects classroom learning to real-world impact.</p>
+    </div>
+  </div>
+
+  <!-- ── ABOUT DEEDS ── -->
+  <section id="about-deeds" style="padding:56px 0 48px;background:#fff;border-bottom:1px solid var(--gray-200,#e5e7eb);">
+    <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+      <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan,#5876a8);display:block;margin-bottom:10px;">About DEEDS</span>
+      <h2 style="font-size:clamp(22px,3vw,32px);font-weight:700;color:#1a1f2e;margin-bottom:12px;line-height:1.25;">What is DEEDS?</h2>
+      <p style="font-size:16px;color:#4f5b6a;max-width:90ch;line-height:1.7;margin-bottom:24px;">DEEDS is a hands-on learning model built around real-world problems. Students take on the role of problem solvers and changemakers. They connect with their communities, discover significant issues, and design and share real solutions. Along the way, they build core content knowledge and personal and professional skills.</p>
+
+      <a href="https://docs.google.com/document/d/1K7B20UXGLjAM5kBmDsQS3a-mtmjwxmLknd1SOKNEjRw/edit?usp=sharing" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;background:var(--gray-100,#f5f5f5);border:1px solid var(--gray-200,#e5e7eb);border-radius:10px;padding:14px 18px;margin-bottom:40px;text-decoration:none;max-width:90ch;">
+        <span style="font-size:14px;color:#1a1f2e;">Grounded in the Science of Learning and Development &mdash; read the research behind DEEDS</span>
+        <span style="font-size:13px;font-weight:700;color:var(--blue-dark,#1a4c81);white-space:nowrap;margin-left:auto;">Read more &rarr;</span>
+      </a>
+
+      <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#4f5b6a;display:block;margin-bottom:16px;">See DEEDS in Action</span>
+
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/muugeHIK0QY" title="DEEDS in Action" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHASE STRIP ── -->
+  <section class="phase-strip" aria-labelledby="phases-heading">
+    <div class="phase-strip-inner">
+      <span class="phase-strip-eyebrow">Explore the Framework</span>
+      <h2 class="phase-strip-heading" id="phases-heading">The Five Phases</h2>
+      <p style="font-size:15px;color:#4f5b6a;max-width:80ch;line-height:1.65;margin-bottom:28px;">Every DEEDS unit follows a repeatable five-phase process that students can apply to any challenge. Each phase includes core protocols that advance content learning and build the habits of mind students need to create meaningful change.</p>
+      <div class="phase-cards-grid">
+        <a href="discover.html" class="phase-card" style="--pc:var(--discover)">
+          <span class="phase-card-num">Phase 01</span>
+          <span class="phase-card-name">Discover</span>
+          <span class="phase-card-desc">Students see, hear, and feel the challenge before they study it, building empathy and a personal "why."</span>
+        </a>
+        <a href="examine.html" class="phase-card" style="--pc:var(--examine)">
+          <span class="phase-card-num">Phase 02</span>
+          <span class="phase-card-name">Examine</span>
+          <span class="phase-card-desc">Students investigate the challenge deeply using disciplinary content, skills, and evidence.</span>
+        </a>
+        <a href="engineer.html" class="phase-card" style="--pc:var(--engineer)">
+          <span class="phase-card-num">Phase 03</span>
+          <span class="phase-card-name">Engineer</span>
+          <span class="phase-card-desc">Students design, prototype, and refine a response to the challenge.</span>
+        </a>
+        <a href="do.html" class="phase-card" style="--pc:var(--do)">
+          <span class="phase-card-num">Phase 04</span>
+          <span class="phase-card-name">Do</span>
+          <span class="phase-card-desc">Students implement their solution and take action in the community.</span>
+        </a>
+        <a href="share.html" class="phase-card" style="--pc:var(--share)">
+          <span class="phase-card-num">Phase 05</span>
+          <span class="phase-card-name">Share</span>
+          <span class="phase-card-desc">Students present their work publicly and reflect on what they've learned and contributed.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer-inner">
+    <div>
+      <a href="index.html" class="site-footer-brand">
+        <img src="assets/revx-logo.png" alt="RevX logo" />
+        <span class="site-footer-wordmark">DEEDS</span>
+      </a>
+      <p class="site-footer-tagline">A K–12 learning model that creates opportunities for young people to claim their power and transform the world.</p>
+    </div>
+    <nav class="site-footer-col" aria-label="Phase pages">
+      <h4>Phases</h4>
+      <div class="site-footer-links">
+        <a href="discover.html"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
+        <a href="examine.html"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
+        <a href="engineer.html"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
+        <a href="do.html"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
+        <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
+      </div>
+    </nav>
+  </div>
+  <div class="site-footer-credit">DEEDS Framework · RevX × Transcend</div>
+</footer>
+
+<script>
+// Nav shadow on scroll
+const nav = document.querySelector('.site-nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10), {passive:true});
+
+// Five Phases dropdown: fixed-position menu so it isn't clipped by the
+// scrollable nav row; hover opens on desktop, tap opens on mobile.
+document.querySelectorAll('.site-nav-dropdown').forEach(dd => {
+  const btn = dd.querySelector('.site-nav-dropdown-toggle');
+  const menu = dd.querySelector('.site-nav-dropdown-menu');
+
+  function positionMenu() {
+    const r = btn.getBoundingClientRect();
+    menu.style.top = r.bottom + 'px';
+    menu.style.left = r.left + 'px';
+  }
+  function openMenu() {
+    positionMenu();
+    menu.style.display = 'flex';
+    dd.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    menu.style.display = 'none';
+    dd.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  dd.addEventListener('mouseenter', () => {
+    if (window.matchMedia('(min-width: 769px)').matches) openMenu();
+  });
+  dd.addEventListener('mouseleave', () => {
+    if (window.matchMedia('(min-width: 769px)').matches) closeMenu();
+  });
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    dd.classList.contains('open') ? closeMenu() : openMenu();
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.site-nav-dropdown')) {
+    document.querySelectorAll('.site-nav-dropdown.open').forEach(dd => {
+      dd.querySelector('.site-nav-dropdown-menu').style.display = 'none';
+      dd.classList.remove('open');
+    });
+  }
+});
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.site-nav-dropdown.open').forEach(dd => {
+    const btn = dd.querySelector('.site-nav-dropdown-toggle');
+    const menu = dd.querySelector('.site-nav-dropdown-menu');
+    const r = btn.getBoundingClientRect();
+    menu.style.top = r.bottom + 'px';
+    menu.style.left = r.left + 'px';
+  });
+});
+
+// Tab switching
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    tabPanels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+    document.getElementById('tab-' + target).classList.add('active');
+  });
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.replace('sr-hidden','sr-visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.sr-hidden').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>
