@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence of Learning: Examine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --phase: #0a9b19;
+  --phase-light: rgba(10,155,25,0.07);
+  --phase-border: rgba(10,155,25,0.2);
+  --text: #333333;
+  --text-mid: #555;
+  --gray-100: #f5f5f5;
+  --gray-200: #e8e8e8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #f5f4f2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 16px 48px; }
+.topbar { width: 100%; max-width: 680px; display: flex; align-items: center; justify-content: space-between; padding: 14px 0; margin-bottom: 8px; }
+.back-btn { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--phase); text-decoration: none; text-transform: uppercase; }
+.back-btn:hover { opacity: .75; }
+.topbar-logo { height:20px; width:auto; flex-shrink:0; margin-left:10px; }
+body.in-drawer .back-btn { display:none; }
+body.in-drawer .topbar-logo { display:none; }
+.band-toggle { display: flex; gap: 4px; }
+.tb { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 5px 12px; border: 1.5px solid var(--gray-200); background: white; color: var(--text-mid); cursor: pointer; border-radius: 0; transition: all .15s; }
+.tb.active { background: var(--phase); border-color: var(--phase); color: white; }
+.card { width: 100%; max-width: 680px; background: white; box-shadow: 0 2px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.04); overflow: hidden; margin-bottom: 16px; }
+.card-header { display: flex; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--gray-200); }
+.phase-pill { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .15em; color: white; background: var(--phase); padding: 4px 10px; margin-right: 10px; }
+.type-badge { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: .1em; padding: 4px 10px; background: var(--phase-light); color: var(--phase); text-transform: uppercase; }
+.card-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: var(--text); padding: 20px 24px 4px; line-height: 1.1; }
+.intro { font-size: 13.5px; color: var(--text-mid); line-height: 1.55; padding: 8px 24px 24px; border-bottom: 1px solid var(--gray-200); }
+.sc-section { padding: 20px 24px; border-bottom: 1px solid var(--gray-200); background: var(--phase-light); }
+.sc-label { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--phase); text-transform: uppercase; margin-bottom: 12px; }
+.sc-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+.sc-item:last-child { margin-bottom: 0; }
+.sc-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--phase); color: white; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sc-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+.sc-desc { font-size: 12px; color: var(--text-mid); line-height: 1.45; }
+.prompts-label { font-size: 13px; color: var(--text-mid); line-height: 1.55; padding: 16px 24px 0; font-style: italic; }
+.prompts-section { padding: 16px 24px 24px; }
+.band-prompts { display: none; }
+.band-prompts.active { display: block; }
+.prompt-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--gray-200); }
+.prompt-item:last-child { border-bottom: none; }
+.prompt-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--phase-light); border: 1.5px solid var(--phase-border); color: var(--phase); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.prompt-text { font-size: 15px; color: var(--text); line-height: 1.5; font-weight: 700; }
+</style>
+</head>
+<body>
+<script>
+if (window.self !== window.top) { document.body.classList.add('in-drawer'); }
+</script>
+<div class="topbar">
+  <a class="back-btn" href="../examine.html">← Examine</a>
+  <img src="../assets/revx-logo.png" alt="RevX logo" class="topbar-logo" />
+  <div class="band-toggle">
+    <button class="tb active" onclick="setBand('k2',this)">K&ndash;2</button>
+    <button class="tb" onclick="setBand('35',this)">3&ndash;5</button>
+    <button class="tb" onclick="setBand('68',this)">6&ndash;8</button>
+    <button class="tb" onclick="setBand('912',this)">9&ndash;12</button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="phase-pill">EXAMINE</span>
+    <span class="type-badge">Evidence of Learning</span>
+  </div>
+  <div class="card-title">Evidence of Learning</div>
+  <div class="intro">Scholars are ready to move on from Examine when they can demonstrate the following:</div>
+  <div class="sc-section">
+    <div class="sc-label">Success Criteria</div>
+    <div class="sc-item"><div class="sc-num">1</div><div><div class="sc-title">Apply Disciplinary Concepts</div><div class="sc-desc">Accurately apply targeted content standards to explain how the system behind the challenge operates and what causes the problem.</div></div></div><div class="sc-item"><div class="sc-num">2</div><div><div class="sc-title">Evaluate Evidence &amp; Reasoning</div><div class="sc-desc">Select, evaluate, and synthesize evidence to build a well-supported causal claim and solution direction.</div></div></div><div class="sc-item"><div class="sc-num">3</div><div><div class="sc-title">Commit to a Solution Direction</div><div class="sc-desc">Use evidence and deliberation to commit to the most defensible solution direction, acknowledging tradeoffs and counterarguments.</div></div></div>
+  </div>
+  <div class="prompts-label">Scholars should be able to respond thoroughly and thoughtfully to the following prompts:</div>
+<div class="prompts-section">
+<div class="band-prompts active" id="bp-k2"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What did you learn about why this challenge is happening?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What solution do you think could help? Why?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What makes you think your solution is the right one?</div></div></div>
+<div class="band-prompts" id="bp-35"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What causes the challenge, and what evidence supports that explanation?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What solution do you think would work best, and why is it better than other options?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What is one tradeoff or limitation of the solution you would choose?</div></div></div>
+<div class="band-prompts" id="bp-68"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What is the root cause of this challenge? Support your claim with evidence from the investigation.</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What solution direction would you defend, and what evidence justifies that choice?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What is the strongest argument against your solution, and how would you respond?</div></div></div>
+<div class="band-prompts" id="bp-912"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What is the most defensible solution direction, given the evidence and tradeoffs?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">Which root cause most significantly drives the challenge, and what disciplinary reasoning supports that conclusion?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What counterarguments challenge your solution, and how does your evidence address them?</div></div></div>
+
+  </div>
+</div>
+<script>
+function setBand(band, btn) {
+  document.querySelectorAll('.band-prompts').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('active'));
+  document.getElementById('bp-' + band).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

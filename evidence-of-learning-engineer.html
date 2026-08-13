@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence of Learning — Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --phase: #003da6;
+  --phase-light: rgba(0,61,166,0.07);
+  --phase-border: rgba(0,61,166,0.2);
+  --text: #1a1a1a;
+  --text-mid: #555;
+  --gray-100: #f5f5f5;
+  --gray-200: #e8e8e8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #f5f4f2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 16px 48px; }
+.topbar { width: 100%; max-width: 680px; display: flex; align-items: center; justify-content: space-between; padding: 14px 0; margin-bottom: 8px; }
+.back-btn { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--phase); text-decoration: none; text-transform: uppercase; }
+.back-btn:hover { opacity: .75; }
+.band-toggle { display: flex; gap: 4px; }
+.tb { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 5px 12px; border: 1.5px solid var(--gray-200); background: white; color: var(--text-mid); cursor: pointer; border-radius: 0; transition: all .15s; }
+.tb.active { background: var(--phase); border-color: var(--phase); color: white; }
+.card { width: 100%; max-width: 680px; background: white; box-shadow: 0 2px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.04); overflow: hidden; margin-bottom: 16px; }
+.card-header { display: flex; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--gray-200); }
+.phase-pill { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .15em; color: white; background: var(--phase); padding: 4px 10px; margin-right: 10px; }
+.type-badge { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: .1em; padding: 4px 10px; background: var(--phase-light); color: var(--phase); text-transform: uppercase; }
+.card-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: var(--text); padding: 20px 24px 4px; line-height: 1.1; }
+.intro { font-size: 13.5px; color: var(--text-mid); line-height: 1.55; padding: 8px 24px 24px; border-bottom: 1px solid var(--gray-200); }
+.sc-section { padding: 20px 24px; border-bottom: 1px solid var(--gray-200); background: var(--phase-light); }
+.sc-label { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--phase); text-transform: uppercase; margin-bottom: 12px; }
+.sc-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+.sc-item:last-child { margin-bottom: 0; }
+.sc-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--phase); color: white; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sc-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+.sc-desc { font-size: 12px; color: var(--text-mid); line-height: 1.45; }
+.prompts-label { font-size: 13px; color: var(--text-mid); line-height: 1.55; padding: 16px 24px 0; font-style: italic; }
+.prompts-section { padding: 16px 24px 24px; }
+.band-prompts { display: none; }
+.band-prompts.active { display: block; }
+.prompt-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--gray-200); }
+.prompt-item:last-child { border-bottom: none; }
+.prompt-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--phase-light); border: 1.5px solid var(--phase-border); color: var(--phase); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.prompt-text { font-size: 15px; color: var(--text); line-height: 1.5; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-btn" href="../engineer.html">← Engineer</a>
+  <div class="band-toggle">
+    <button class="tb active" onclick="setBand('k2',this)">K&ndash;2</button>
+    <button class="tb" onclick="setBand('35',this)">3&ndash;5</button>
+    <button class="tb" onclick="setBand('68',this)">6&ndash;8</button>
+    <button class="tb" onclick="setBand('912',this)">9&ndash;12</button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="phase-pill">ENGINEER</span>
+    <span class="type-badge">Evidence of Learning</span>
+  </div>
+  <div class="card-title">Evidence of Learning</div>
+  <div class="intro">Scholars are ready to move on from Engineer when they can demonstrate the following:</div>
+  <div class="sc-section">
+    <div class="sc-label">Success Criteria</div>
+    <div class="sc-item"><div class="sc-num">1</div><div><div class="sc-title">Design the Solution</div><div class="sc-desc">Make clear design choices that address a specific root cause, meet defined criteria and constraints, and can be justified with evidence and reasoning.</div></div></div><div class="sc-item"><div class="sc-num">2</div><div><div class="sc-title">Plan &amp; Build</div><div class="sc-desc">Develop a logical construction sequence, use professional tools and disciplinary methods safely and effectively, and follow the plan while adapting as needed.</div></div></div><div class="sc-item"><div class="sc-num">3</div><div><div class="sc-title">Test, Revise &amp; Demonstrate Readiness</div><div class="sc-desc">Test the solution during construction, revise based on feedback and evidence, and demonstrate that it functions as intended and is ready for enactment.</div></div></div>
+  </div>
+  <div class="prompts-label">Scholars should be able to respond thoroughly and thoughtfully to the following prompts:</div>
+<div class="prompts-section">
+<div class="band-prompts active" id="bp-k2"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Does your solution work? Show how it does what it needs to do.</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">Is your solution ready to use? What would you still want to fix or improve?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">How does your solution help with the problem we were solving?</div></div></div>
+<div class="band-prompts" id="bp-35"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Show how your solution works. Does it meet your criteria? What would you fix if you had more time?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What changes did you make while building? Why did you make them?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">How well does your solution address the challenge? What is it missing?</div></div></div>
+<div class="band-prompts" id="bp-68"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Demonstrate how your solution works and explain how it meets your defined criteria and constraints.</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What did you change during construction and why? What does your Revision Log show?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">How ready is your solution for real-world use? What limitations remain?</div></div></div>
+<div class="band-prompts" id="bp-912"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Demonstrate readiness: explain how your solution addresses the root cause, how it meets defined criteria and constraints, and how your revisions improved it.</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What tradeoffs did you make during the build, and how do you justify them?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What would need to happen for this solution to have real impact? What are its limits?</div></div></div>
+
+  </div>
+</div>
+<script>
+function setBand(band, btn) {
+  document.querySelectorAll('.band-prompts').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('active'));
+  document.getElementById('bp-' + band).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
