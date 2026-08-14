@@ -87,6 +87,10 @@
         <h1>Where curiosity meets <em>consciousness.</em></h1>
         <p>Students see, hear, and feel a challenge before they study it, building empathy, connection, and social consciousness. This creates a compelling personal "why" for the learning and action to come.</p>
       </div>
+      <div style="background:rgba(0,0,0,0.28);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 22px;">
+        <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff;background:var(--phase-color-hex);padding:4px 10px;border-radius:20px;margin-bottom:12px;">Grounded in the Science of Learning</div>
+        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0;">In Discover, students build <strong>value, meaningful encoding, constructive emotions, self-understanding, and connection to their own life experiences</strong> by immersing themselves in a real community challenge.</p>
+      </div>
     </div>
   </div>
 </header>
@@ -97,7 +101,6 @@
     <button class="snb on" data-t="success">Success Criteria</button>
     <button class="snb" data-t="how">Student Experience</button>
     <button class="snb" data-t="calendar">Sample Discover Plans</button>
-    <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
 
@@ -259,18 +262,6 @@
   </div>
 </section>
 
-<!-- ── SCIENCE OF LEARNING ── -->
-<section class="section" id="sold" style="padding-top:40px;padding-bottom:40px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
-  <div class="container">
-    <div style="margin-bottom:32px;background:linear-gradient(135deg,#FFF0E0,#FFF8F0);border:1px solid rgba(212,96,10,.12);border-radius:16px;padding:22px 24px;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--phase-color-hex);margin-bottom:10px;">Grounded in the Science of Learning and Development</div>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">In Discover, students build <strong>value, meaningful encoding, constructive emotions, self-understanding, and connection to their own life experiences</strong>.</p>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">They immerse themselves in a real community challenge through site visits, interviews, and observations, encountering distinctive, emotionally compelling moments that anchor new learning in firsthand experience. A real-world client gives them an ongoing reason to care about the challenge. When students reflect on why the challenge matters to them personally, they link their own stories and communities to the work. They also build relationships with community partners, introduced here and continued through later phases, gaining access to resources beyond the classroom.</p>
-    </div>
-
-  </div>
-</section>
-
 </main>
 
 <!-- ── PHASE NAV STRIP ── -->
@@ -364,7 +355,7 @@ window.addEventListener('resize', () => {
 });
 
 // Sub-nav active state on scroll
-const sections = ['success','how','calendar','sold','protocols','try'];
+const sections = ['success','how','calendar','protocols','try'];
 const snbs = document.querySelectorAll('.snb');
 snbs.forEach(b => b.addEventListener('click', () => {
   const el = document.getElementById(b.dataset.t);

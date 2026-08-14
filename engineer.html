@@ -77,6 +77,10 @@
         <h1>Where ideas become <em>real.</em></h1>
         <p>Students take on a professional role to design, plan, build, and refine a solution that directly addresses a root cause of the challenge, and demonstrate that it is ready for real-world use.</p>
       </div>
+      <div style="background:rgba(0,0,0,0.28);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 22px;">
+        <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff;background:var(--phase-color-hex);padding:4px 10px;border-radius:20px;margin-bottom:12px;">Grounded in the Science of Learning</div>
+        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0;">In Engineer, students build <strong>high-quality feedback, self-efficacy, and sense of control</strong> as they turn their thinking into a real solution.</p>
+      </div>
     </div>
   </div>
 </header>
@@ -86,7 +90,6 @@
     <button class="snb on" data-t="success">Success Criteria</button>
     <button class="snb" data-t="how">Student Experience</button>
     <button class="snb" data-t="calendar">Sample Engineer Plans</button>
-    <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
 
@@ -231,18 +234,6 @@
   </div>
 </section>
 
-<!-- ── SCIENCE OF LEARNING ── -->
-<section class="section" id="sold" style="padding-top:40px;padding-bottom:40px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
-  <div class="container">
-    <div style="margin-bottom:32px;background:linear-gradient(135deg,#e8eeff,#f0f4ff);border:1px solid rgba(0,49,160,.12);border-radius:16px;padding:22px 24px;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--phase-color-hex);margin-bottom:10px;">Grounded in the Science of Learning and Development</div>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">In Engineer, students build <strong>high-quality feedback, self-efficacy, and sense of control</strong> as they turn their thinking into a real solution.</p>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">They test prototypes and gather feedback, creating natural loops for improvement. Working through a scaffolded progression of challenging but achievable goals, they see the connection between effort and success, especially as they revise and improve through iteration. They also exercise agency, making authentic decisions about how to design and construct their solution.</p>
-    </div>
-
-  </div>
-</section>
-
 </main>
 
 <nav class="phase-nav-strip" aria-label="Continue your DEEDS journey">
@@ -341,7 +332,7 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
 
 // Sample Engineer Plans — session data
 const scSessionData = {
@@ -380,13 +371,13 @@ const scSessionData = {
   'nobodys-listening': [
     { day: 'Day 25', num: 25, title: 'Set Intended Impact', summary: 'Students meet with their community partner and discuss the impact they want their exhibit to have.', beats: [
       { label: 'Opening', text: 'Provocation: what do you want a visitor to feel or understand after seeing your exhibit?' },
-      { label: 'Core Activity', text: 'Students meet with Ryan D\'Souza to preview the Engineer phase, then discuss the impact they intend their exhibit to have on visitors.' },
+      { label: 'Core Activity', text: 'Students meet with Ryan D\'Souza to preview the Engineer phase, then discuss how their completed research will come to life as something a visitor can actually walk through and experience.' },
       { label: 'Sensemaking', text: 'Students connect their intended impact back to the challenge: making sure overlooked conflicts are understood and remembered.' },
       { label: 'Exit Ticket', text: 'One sentence describing the impact you want your exhibit to have.' }
     ]},
     { day: 'Day 26', num: 26, title: 'Define Criteria and Constraints', summary: 'Students tour the exhibition space and set criteria for what makes an effective exhibit.', beats: [
       { label: 'Opening', text: 'Provocation: think of a museum exhibit that stuck with you. What made it memorable?' },
-      { label: 'Core Activity', text: 'Students tour the exhibition space and discuss what their exhibit needs to include and what constraints they\'re working within, building a shared list of criteria.' },
+      { label: 'Core Activity', text: 'Students tour the exhibition space and discuss what it will take to turn their StoryMap research into something visitors can experience there, building a shared list of criteria.' },
       { label: 'Sensemaking', text: 'Teams check their emerging plans against the class criteria list.' },
       { label: 'Exit Ticket', text: 'Teams begin developing their own exhibit plans.' }
     ]},

@@ -74,6 +74,10 @@
         <h1>Where learning goes <em>public.</em></h1>
         <p>Students make their learning visible, explaining what they investigated, what they built, and what they changed, to a real audience beyond the classroom.</p>
       </div>
+      <div style="background:rgba(0,0,0,0.28);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 22px;">
+        <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff;background:var(--phase-color-hex);padding:4px 10px;border-radius:20px;margin-bottom:12px;">Grounded in the Science of Learning</div>
+        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0;">In Share, students build <strong>metacognitive thinking, self-understanding, sense of belonging, and value</strong> as they bring their learning to a close.</p>
+      </div>
     </div>
   </div>
 </header>
@@ -83,7 +87,6 @@
     <button class="snb on" data-t="success">Success Criteria</button>
     <button class="snb" data-t="how">Student Experience</button>
     <button class="snb" data-t="calendar">Sample Share Plans</button>
-    <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
 
@@ -252,18 +255,6 @@
   </div>
 </section>
 
-<!-- ── SCIENCE OF LEARNING ── -->
-<section class="section" id="sold" style="padding-top:40px;padding-bottom:40px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
-  <div class="container">
-    <div style="margin-bottom:32px;background:linear-gradient(135deg,#fce8ee,#fff0f4);border:1px solid rgba(140,8,48,.12);border-radius:16px;padding:22px 24px;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--phase-color-hex);margin-bottom:10px;">Grounded in the Science of Learning and Development</div>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">In Share, students build <strong>metacognitive thinking, self-understanding, sense of belonging, and value</strong> as they bring their learning to a close.</p>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">Through regular reflection, they articulate their strengths, growth areas, and evolving understanding of who they are as learners and community members. When students present to an authentic audience who cares about their work, they experience themselves as valued members of a broader community. They celebrate publicly what they've done, deepening the learning and cementing their identities as changemakers.</p>
-    </div>
-
-  </div>
-</section>
-
 </main>
 
 <nav class="phase-nav-strip" aria-label="Continue your DEEDS journey">
@@ -362,7 +353,7 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
 
 // Sample Share Plans — session data
 const scSessionData = {

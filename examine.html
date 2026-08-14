@@ -81,6 +81,10 @@
         <h1>Where questions meet <em>evidence.</em></h1>
         <p>Students investigate the root causes of the challenge through disciplinary inquiry, building the content knowledge and evidence base needed to propose and defend a solution direction.</p>
       </div>
+      <div style="background:rgba(0,0,0,0.28);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 22px;">
+        <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff;background:var(--phase-color-hex);padding:4px 10px;border-radius:20px;margin-bottom:12px;">Grounded in the Science of Learning</div>
+        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0;">In Examine, students experience <strong>manageable cognitive load, meaningful encoding, effective practice, and sense of control</strong> as they work through the challenge in distinct, purposeful steps.</p>
+      </div>
     </div>
   </div>
 </header>
@@ -90,7 +94,6 @@
     <button class="snb on" data-t="success">Success Criteria</button>
     <button class="snb" data-t="how">Student Experience</button>
     <button class="snb" data-t="calendar">Sample Examine Plans</button>
-    <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
 
@@ -226,18 +229,6 @@
   </div>
 </section>
 
-<!-- ── SCIENCE OF LEARNING ── -->
-<section class="section" id="sold" style="padding-top:40px;padding-bottom:40px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
-  <div class="container">
-    <div style="margin-bottom:32px;background:linear-gradient(135deg,#e8f7ea,#f0faf1);border:1px solid rgba(10,122,20,.12);border-radius:16px;padding:22px 24px;">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--phase-color-hex);margin-bottom:10px;">Grounded in the Science of Learning and Development</div>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">In Examine, students experience <strong>manageable cognitive load, meaningful encoding, effective practice, and sense of control</strong> as they work through the challenge in distinct, purposeful steps.</p>
-      <p style="font-size:17px;font-weight:400;color:var(--gray-900);line-height:1.7;margin-bottom:12px;width:100%;">They connect new content to the prior experience and the challenge they witnessed firsthand in Discover, building organizing schemas that link concepts across disciplines. They practice literacy and reasoning skills through research at the edge of their comfort zone, and they exercise real agency by choosing which questions to investigate.</p>
-    </div>
-
-  </div>
-</section>
-
 </main>
 
 <nav class="phase-nav-strip" aria-label="Continue your DEEDS journey">
@@ -336,7 +327,7 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
 
 
 
@@ -423,215 +414,228 @@ const scSessionData = {
   'peaceful-paws': [
     { day: 'Day 6', num: 6, title: 'Generate Questions', summary: 'Students ask questions and observe how current dog toys do or do not help dogs feel calm.', beats: [
       { label: 'Opening', text: 'What is the problem we are trying to solve for dogs?' },
-      { label: 'Core Activity', text: 'Students look at dog toys and ask questions: does this help a dog feel calm? Why or why not? <a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 1.' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 1' },
+      { label: 'Core Activity', text: 'Students look at dog toys and ask questions: does this help a dog feel calm? Why or why not?' },
       { label: 'Sensemaking', text: 'We talk about which toys seem to help and which ones don\'t.' },
       { label: 'Exit Ticket', text: 'One problem we want to solve.' }
     ]},
     { day: 'Day 7', num: 7, title: 'Observe Material Properties', summary: 'Students observe and describe materials using their properties.', beats: [
       { label: 'Opening', text: 'What did the materials feel like yesterday?' },
-      { label: 'Core Activity', text: 'Students touch and describe materials &mdash; soft, rough, bendy, hard &mdash; and think about how a dog might feel using them. <a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 2.' },
-      { label: 'Sensemaking', text: 'Which words describe things that feel calming?' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 2' },
+      { label: 'Core Activity', text: 'Students touch and describe materials &mdash; soft, rough, bendy, hard &mdash; and think about how a dog might feel using them.' },
+      { label: 'Sensemaking', text: 'Which of these properties would help a dog feel calm in a toy?' },
       { label: 'Exit Ticket', text: 'One material and how it feels.' }
     ]},
     { day: 'Day 8', num: 8, title: 'Classify Materials', summary: 'Students group materials based on shared properties and identify patterns.', beats: [
       { label: 'Opening', text: 'What words did we use yesterday to describe materials?' },
-      { label: 'Core Activity', text: 'Students group materials by how they feel and discuss which groups might feel calming to a dog. <a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 3.' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 3' },
+      { label: 'Core Activity', text: 'Students group materials by how they feel and discuss which groups might feel calming to a dog.' },
       { label: 'Sensemaking', text: 'Which groups of materials might feel calming to a dog?' },
       { label: 'Exit Ticket', text: 'One group of materials and what they have in common.' }
     ]},
     { day: 'Day 9', num: 9, title: 'Test Materials', summary: 'Students test materials to observe how their properties affect how well they could calm a dog.', beats: [
       { label: 'Opening', text: 'What makes a material good for a calming toy?' },
-      { label: 'Core Activity', text: 'Students squeeze, bend, and pull materials, recording which feel soft, safe, and calming. <a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 4.' },
-      { label: 'Sensemaking', text: 'Which materials felt safe and calming?' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 4' },
+      { label: 'Core Activity', text: 'Students squeeze, bend, and pull materials, recording which feel soft, safe, and calming.' },
+      { label: 'Sensemaking', text: 'Which of these materials could actually go into our calming toy?' },
       { label: 'Exit Ticket', text: 'One material that worked well.' }
     ]},
     { day: 'Day 10', num: 10, title: 'Analyze Data', summary: 'Students analyze test results to determine which materials are best for a calming toy.', beats: [
       { label: 'Opening', text: 'Let\'s look back at our test results.' },
-      { label: 'Core Activity', text: 'Students compare their results to find the materials best suited to help dogs feel calm. <a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 5.' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Part 5' },
+      { label: 'Core Activity', text: 'Students compare their results to find the materials best suited to help dogs feel calm.' },
       { label: 'Sensemaking', text: 'Which materials are best for helping dogs feel calm?' },
       { label: 'Exit Ticket', text: 'Best material and why.' }
     ]},
     { day: 'Day 11', num: 11, title: 'Explore How Toys Are Made', summary: 'Students examine how objects are made of parts.', beats: [
       { label: 'Opening', text: 'What are calming toys made of?' },
-      { label: 'Core Activity', text: 'Students look at objects, find their parts, and discuss how the parts work together. <a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 1.' },
-      { label: 'Sensemaking', text: 'How do the different parts work together?' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 1' },
+      { label: 'Core Activity', text: 'Students look at objects, find their parts, and discuss how the parts work together.' },
+      { label: 'Sensemaking', text: 'How could the way these parts fit together help our own calming toy work better?' },
       { label: 'Exit Ticket', text: 'One part and what it does.' }
     ]},
     { day: 'Day 12', num: 12, title: 'Apply Material Knowledge', summary: 'Students connect materials to calming functions.', beats: [
       { label: 'Opening', text: 'Let\'s review parts and materials.' },
-      { label: 'Core Activity', text: 'Students connect their material choices to how calming they are. <a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 2.' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 2' },
+      { label: 'Core Activity', text: 'Students connect their material choices to how calming they are.' },
       { label: 'Sensemaking', text: 'Which materials help calm the most, and why?' },
       { label: 'Exit Ticket', text: 'One material that helps calm.' }
     ]},
     { day: 'Day 13', num: 13, title: 'Choose a Solution Direction', summary: 'Students use evidence to define a plan.', beats: [
       { label: 'Opening', text: 'How do we use what we learned to build a solution?' },
-      { label: 'Core Activity', text: 'Claim + Evidence: students decide which materials and design will best help dogs feel calm. <a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 3.' },
+      { label: 'Collaborative Science', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Part 3' },
+      { label: 'Core Activity', text: 'Claim + Evidence: students decide which materials and design will best help dogs feel calm.' },
       { label: 'Sensemaking', text: 'Does our evidence support our plan?' },
       { label: 'Exit Ticket', text: 'Our solution should use ___ because ___.' }
     ]}
   ],
   'nobodys-listening': [
     { day: 'Day 6', num: 6, title: 'Frame the Challenge and Set Goals', summary: 'Students are introduced to the Examine phase, revisit the exhibit challenge, and set a personal goal for the module.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Review what Examine means, then revisit the challenge: How can we create immersive exhibits to build greater understanding of global conflicts?' },
       { label: 'Core Activity', text: 'Students set a personal goal for the module, then work in pairs to read a summary of one of ten real-world conflicts and add it to a shared class map of the Eastern Hemisphere.' },
-      { label: 'Sensemaking', text: 'Teams share out who is involved in their conflict, where, and why.' },
+      { label: 'Sensemaking', text: 'How does knowing who\'s involved help a visitor care about this conflict?' },
       { label: 'Exit Ticket', text: 'Name one thing you already know or believe about this conflict.' }
     ]},
     { day: 'Day 7', num: 7, title: 'Form Teams and Create Agreements', summary: 'Students form region teams, create shared agreements for how they\'ll work together, and begin researching their assigned conflict.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What do you already know about your team\'s conflict?' },
       { label: 'Core Activity', text: 'Teams create agreements for how they\'ll collaborate, then read and discuss a research text about their region and conflict.' },
       { label: 'Sensemaking', text: 'Teams determine the who, where, and why of their conflict and begin drafting the rationale for their exhibit.' },
       { label: 'Exit Ticket', text: 'One sentence explaining why your conflict deserves an exhibit.' }
     ]},
     { day: 'Day 8', num: 8, title: 'Investigate Types of Maps', summary: 'Students research and compare different types of maps to understand what each is best suited for.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What kinds of maps have you seen, and what is each one good for?' },
       { label: 'Core Activity', text: 'Students compare sample maps, noting common features and differences, then watch a short video connecting their observations to what a map is for.' },
       { label: 'Sensemaking', text: 'As a class, students discuss which map type would work best for their exhibit.' },
       { label: 'Exit Ticket', text: 'Concept check: name one type of map and what it\'s best suited for.' }
     ]},
     { day: 'Day 9', num: 9, title: 'Explore Scale and Location', summary: 'Students learn how scale, absolute location, and relative location work on a map.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: Why might two maps of the same place look completely different?' },
       { label: 'Core Activity', text: 'Students learn the difference between map scale, absolute location, and relative location, then compare three maps in groups to see these ideas in action.' },
       { label: 'Sensemaking', text: 'Teams decide what\'s most important to communicate about their region\'s location and which map scale best fits their exhibit.' },
       { label: 'Exit Ticket', text: 'Brief transfer task: explain the difference between absolute and relative location.' }
     ]},
     { day: 'Day 10', num: 10, title: 'Complete the Region Overview', summary: 'Students complete their overview of their region and exchange feedback with another team.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What does someone need to know first to understand your region?' },
       { label: 'Core Activity', text: 'Students write an overview of their region, including its location, the countries involved, and maps of up to six countries.' },
-      { label: 'Sensemaking', text: 'Teams trade drafts with another team, give feedback, and discuss revisions.' },
+      { label: 'Sensemaking', text: 'Teams discuss how the feedback will help a visitor understand their region better.' },
       { label: 'Exit Ticket', text: 'One piece of feedback you received and how you\'ll use it.' }
     ]},
     { day: 'Day 11', num: 11, title: 'Analyze a StoryMap Prototype', summary: 'Students analyze a sample StoryMap and set up their own account to begin building their exhibit.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What makes an exhibit interactive instead of just informative?' },
-      { label: 'Core Activity', text: 'Teams revisit their questions and agreements, then set up a shared StoryMaps account and begin building their exhibit.' },
+      { label: 'Core Activity', text: 'Teams revisit their questions and agreements, then set up a shared StoryMaps account and begin organizing their research into their exhibit\'s first content layer.' },
       { label: 'Sensemaking', text: 'Teams discuss how their region overview will translate into their first StoryMap layer.' },
       { label: 'Exit Ticket', text: 'One question you still have about building your exhibit.' }
     ]},
     { day: 'Day 12', num: 12, title: 'Research the History of the Conflict', summary: 'Students begin researching the historical roots of their region\'s conflict.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: How far back do you think you\'ll need to go to understand this conflict\'s roots?' },
       { label: 'Core Activity', text: 'Students research how their conflict began, working toward choosing five key historical events and an image to illustrate each.' },
       { label: 'Sensemaking', text: 'Teams discuss which historical events feel most directly connected to the conflict today.' },
       { label: 'Exit Ticket', text: 'Name one historical event you think shaped this conflict.' }
     ]},
     { day: 'Day 13', num: 13, title: 'Explore Map Projections', summary: 'Students investigate different map projections to determine which best represents their region and its history.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: Can a flat map ever perfectly represent a round planet?' },
       { label: 'Core Activity', text: 'In pairs, students explore different map projections and watch a video on why all world maps distort reality in some way.' },
-      { label: 'Sensemaking', text: 'An outer/inner circle discussion, led by student Question Leaders, on how map projections shape our understanding of the world.' },
+      { label: 'Sensemaking', text: 'Students connect what they learned about projections to how they\'ll choose maps for their own exhibit.' },
       { label: 'Exit Ticket', text: 'Teams choose and summarize five key historical events for their exhibit.' }
     ]},
     { day: 'Day 14', num: 14, title: 'Study Political Borders', summary: 'Students study political maps and how borders shape today\'s conflicts.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: Who decides where a border goes, and what happens to the people living near it?' },
       { label: 'Core Activity', text: 'Students learn what a political map shows and discuss why borders are drawn the way they are.' },
       { label: 'Sensemaking', text: 'Students connect what they\'ve learned about borders to their own conflict.' },
       { label: 'Exit Ticket', text: 'Concept check: what does a political map show that other maps don\'t?' }
     ]},
     { day: 'Day 15', num: 15, title: 'Prepare for the Socratic Seminar', summary: 'Students finalize their region overview and prepare for a student-led discussion on how borders shape conflict.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What questions do you want to ask your classmates about borders and conflict?' },
       { label: 'Core Activity', text: 'Students complete their region overview, then prepare for next week\'s discussion by reflecting on how borders shape the lives of people living near them.' },
-      { label: 'Sensemaking', text: 'Students annotate evidence from their notes and texts to support their thinking for the seminar.' },
+      { label: 'Sensemaking', text: 'Students connect their evidence to why this conflict deserves to be remembered, not just researched.' },
       { label: 'Exit Ticket', text: 'One claim you want to bring to the discussion, with evidence.' }
     ]},
     { day: 'Day 16', num: 16, title: 'Discuss Multiple Viewpoints', summary: 'Students discuss competing viewpoints on their conflict, following shared discussion norms.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
       { label: 'Opening', text: 'Provocation: Can two people look at the same conflict and both be right?' },
       { label: 'Core Activity', text: 'Following shared norms &mdash; speak directly to each other, use evidence, give everyone a chance to participate &mdash; teams read a text focused on the opposing viewpoint and discuss why the other side sees the conflict differently.' },
       { label: 'Sensemaking', text: 'Students reflect on how their thinking changed: "I used to think... but now I think..."' },
       { label: 'Exit Ticket', text: 'Name one perspective on this conflict you hadn\'t considered before today.' }
     ]},
     { day: 'Day 17', num: 17, title: 'Research Historical Events', summary: 'Students research how historical events have contributed to today\'s conflict.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
       { label: 'Opening', text: 'Provocation: How have historical events contributed to today\'s conflicts?' },
       { label: 'Core Activity', text: 'Teams read and discuss a text on their conflict\'s history, identifying five key events and the factors &mdash; religious, border disputes, resources &mdash; behind each.' },
-      { label: 'Sensemaking', text: 'Teams discuss which factors show up again and again across the events they identified.' },
+      { label: 'Sensemaking', text: 'Teams discuss which recurring factors visitors most need to understand about this conflict.' },
       { label: 'Exit Ticket', text: 'Name one factor that keeps showing up in your conflict\'s history.' }
     ]},
     { day: 'Day 18', num: 18, title: 'Exchange Feedback on Historical Events', summary: 'Students exchange feedback on their historical-events research.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>' },
       { label: 'Opening', text: 'Provocation: What makes historical evidence convincing to someone who doesn\'t know your conflict?' },
       { label: 'Core Activity', text: 'Teams trade plans with another team, give feedback, and discuss revisions.' },
       { label: 'Sensemaking', text: 'Teams reflect on how the feedback changes what they\'ll include in their exhibit.' },
       { label: 'Exit Ticket', text: 'One revision you plan to make based on feedback.' }
     ]},
     { day: 'Day 19', num: 19, title: 'Build the StoryMap', summary: 'Students check in on their personal goals and begin building their region overview into their StoryMap.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
       { label: 'Opening', text: 'Students reflect on the personal goal they set earlier in the module.' },
       { label: 'Core Activity', text: 'Students build the first layer of their StoryMap: an introduction to their region and a summary of the conflict.' },
-      { label: 'Sensemaking', text: 'Students reflect on their learning so far and set a goal for what\'s next.' },
+      { label: 'Sensemaking', text: 'Students reflect on how their exhibit is helping make sure this conflict isn\'t forgotten.' },
       { label: 'Exit Ticket', text: 'One thing you\'re proud of in your exhibit so far.' }
     ]},
     { day: 'Day 20', num: 20, title: 'Explore Human-Environment Patterns', summary: 'Students examine and compare various maps to discover patterns in human settlement, economic activity, and resource scarcity.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
       { label: 'Opening', text: 'Provocation: How might where people live shape what they fight over?' },
       { label: 'Core Activity', text: 'Students preview the upcoming task &mdash; summarizing ten contributing factors &mdash; then explore different types of maps of their region (physical, climate, population, land use, resources), looking for patterns.' },
       { label: 'Sensemaking', text: 'Teams discuss which patterns seem most connected to their conflict.' },
       { label: 'Exit Ticket', text: 'Name one pattern you noticed across the maps you explored.' }
     ]},
     { day: 'Day 21', num: 21, title: 'Continue Finding the Stories', summary: 'Students continue comparing maps to uncover patterns, then discuss their findings as a class.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
       { label: 'Opening', text: 'Provocation: What story might a map tell that words alone can\'t?' },
       { label: 'Core Activity', text: 'Teams continue exploring maps of their region.' },
       { label: 'Sensemaking', text: 'An outer/inner circle discussion on what patterns emerged and how they\'ll shape the team\'s exhibit.' },
       { label: 'Exit Ticket', text: 'One story your maps revealed about your conflict.' }
     ]},
     { day: 'Day 22', num: 22, title: 'Examine Current Conflict Factors', summary: 'Students read and discuss the current political and environmental issues driving their conflict.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
       { label: 'Opening', text: 'Provocation: What\'s driving this conflict right now, today?' },
-      { label: 'Core Activity', text: 'Teams read and discuss a text on the current conflict, identifying 8&ndash;10 contributing factors.' },
-      { label: 'Sensemaking', text: 'Teams decide which digital tool &mdash; StoryMaps, Canva, or Google Slides &mdash; they\'ll use to build their exhibit.' },
+      { label: 'Core Activity', text: 'Teams read and discuss a text on the current conflict, identifying 8&ndash;10 contributing factors, and decide which digital tool &mdash; StoryMaps, Canva, or Google Slides &mdash; they\'ll use to build their exhibit.' },
+      { label: 'Sensemaking', text: 'Teams discuss which of these current factors a visitor most needs to understand to grasp why this conflict is still happening.' },
       { label: 'Exit Ticket', text: 'Name one factor currently driving your conflict.' }
     ]},
     { day: 'Day 23', num: 23, title: 'Summarize Contributing Factors', summary: 'Students choose and summarize ten contributing factors, then exchange feedback.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>' },
       { label: 'Opening', text: 'Provocation: Out of everything you\'ve researched, what matters most to include?' },
       { label: 'Core Activity', text: 'Students choose and summarize ten factors contributing to the conflict, then trade plans with another team for feedback.' },
       { label: 'Sensemaking', text: 'Teams discuss how the feedback sharpens their summary of contributing factors.' },
       { label: 'Exit Ticket', text: 'One factor you\'re confident belongs in your exhibit, and why.' }
     ]},
-    { day: 'Day 24', num: 24, title: 'Complete the Contributing Factors Layer', summary: 'Students complete their performance task and build the final layer of their StoryMap.', beats: [
-      { label: 'Reading', text: '<a href="https://docs.google.com/document/d/1q_oBg3NH7jLvN7gUbbxPAqip2uLC2Cpx1SEyfHMcae4/edit" target="_blank">Territorial Disputes in the South China Sea</a>' },
-      { label: 'Opening', text: 'Provocation: Looking back at everything you\'ve built, what does your exhibit teach a visitor?' },
-      { label: 'Core Activity', text: 'Students finalize their ten contributing factors and build the final layer of their exhibit.' },
-      { label: 'Sensemaking', text: 'Students connect their finished exhibit back to the challenge: helping visitors understand this conflict.' },
-      { label: 'Exit Ticket', text: 'Students reflect on their learning and give feedback on the module.' }
+    { day: 'Day 24', num: 24, title: 'Finish the Research Base', summary: 'Students finish organizing their research into the final content layer, setting up the design and construction work to come in Engineer.', beats: [
+      { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1q_oBg3NH7jLvN7gUbbxPAqip2uLC2Cpx1SEyfHMcae4/edit" target="_blank">Territorial Disputes in the South China Sea</a>' },
+      { label: 'Opening', text: 'Provocation: now that you understand this conflict deeply, what will it take to turn your research into something a visitor can actually experience?' },
+      { label: 'Core Activity', text: 'Students finalize their ten contributing factors and organize them into the last research layer of their StoryMap.' },
+      { label: 'Sensemaking', text: 'Students recognize that their research is complete for now &mdash; Engineer is where they\'ll design and build the interactive, polished version of this exhibit for real visitors.' },
+      { label: 'Exit Ticket', text: 'Claim with evidence: what does your research show about why this conflict is still happening today?' }
     ]}
   ],
   'crowd-power': [
     { day: 'Day 3', num: 3, title: 'Explore Newton\'s Second Law', summary: 'Students investigate how mass and speed affect motion and begin exploring Newton\'s Second Law.', beats: [
       { label: 'Opening', text: 'Provocation: roll a cart or water jug into a chair at different masses or speeds. Which was harder to stop? If this were a person in a crowd, what could go wrong?' },
+      { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson introduces Newton\'s Second Law and momentum: more mass or speed means an object is harder to stop. Students then rotate through hands-on stations exploring what happens when people move, collide, or get compressed in a crowd.' },
-      { label: 'Sensemaking', text: 'Students connect what they observed at each station back to Newton\'s Second Law.' },
+      { label: 'Sensemaking', text: 'Students connect what they observed to a real question: how could this law help make crowds safer?' },
       { label: 'Exit Ticket', text: 'Explain in your own words: why does more mass or speed make something harder to stop?' }
     ]},
     { day: 'Day 4', num: 4, title: 'Apply Newton\'s Third Law', summary: 'Students learn about action-reaction forces and apply their understanding to a real-world transfer task.', beats: [
       { label: 'Opening', text: 'Provocation: when you push against a wall, does the wall push back?' },
+      { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson introduces Newton\'s Third Law: every force comes with an equal, opposite force, which is why physical interactions in crowds cause chain reactions. Students apply this to a paired transfer task.' },
       { label: 'Sensemaking', text: 'Students discuss how action-reaction forces explain chain reactions in a crowd.' },
       { label: 'Exit Ticket', text: 'Homework: write a brief briefing for the NYCLU explaining the physical risks of moving crowds.' }
     ]},
     { day: 'Day 5', num: 5, title: 'Investigate Momentum', summary: 'Students explore how momentum explains why some objects &mdash; or people &mdash; are harder to stop than others.', beats: [
       { label: 'Opening', text: 'Provocation: a Newton\'s Cradle demo. Why did only some objects move? What does this remind you of in a crowd?' },
+      { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson introduces momentum as the product of mass and velocity. Students rotate through stations exploring how to reduce harm when crowds move or collide.' },
       { label: 'Sensemaking', text: 'Students discuss which station findings connect most directly to reducing harm in a real crowd.' },
       { label: 'Exit Ticket', text: 'Explain why momentum helps predict how hard something is to stop.' }
     ]},
     { day: 'Day 6', num: 6, title: 'Analyze Conservation of Momentum', summary: 'Students learn that momentum is conserved in collisions and use that idea to analyze real crowd scenarios.', beats: [
       { label: 'Opening', text: 'Provocation: in a collision, where does the momentum go?' },
+      { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson explains that in a closed system, total momentum stays the same before and after a collision. Students continue their station investigations, then apply the idea to a paired transfer task.' },
       { label: 'Sensemaking', text: 'Students connect conservation of momentum back to real crowd scenarios like pileups or people bumping into each other.' },
       { label: 'Exit Ticket', text: 'Homework: a memo to the NYCLU on how to reduce harm from moving crowds.' }
     ]},
     { day: 'Day 7', num: 7, title: 'Apply Impulse to Safety Design', summary: 'Students learn how increasing impact time reduces force, the key idea behind engineering safer collisions.', beats: [
       { label: 'Opening', text: 'Provocation: two videos comparing a test dummy hitting a padded barrier versus a concrete wall at the same speed. Why did one experience more force?' },
+      { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson introduces the idea that increasing impact time decreases force &mdash; the key to engineering safer collisions. Students rotate through stations defining design criteria and gathering inspiration for their own safety solution.' },
       { label: 'Sensemaking', text: 'Students discuss how this idea about impact time could shape a real safety device.' },
       { label: 'Exit Ticket', text: 'Explain how increasing the time of a collision reduces the force involved.' }
@@ -639,7 +643,7 @@ const scSessionData = {
     { day: 'Day 8', num: 8, title: 'Select a Solution Direction', summary: 'Students synthesize their learning to choose and justify a design direction for their safety solution.', beats: [
       { label: 'Opening', text: 'Provocation: of everything we\'ve learned, what matters most for keeping people safe in a crowd?' },
       { label: 'Core Activity', text: '<strong>Claim + Evidence:</strong> teams agree on design criteria, brainstorm and evaluate multiple solutions, and select one to develop, using evidence from their investigations.' },
-      { label: 'Sensemaking', text: 'Teams check their chosen direction against the physics concepts they\'ve learned this Examine cycle.' },
+      { label: 'Sensemaking', text: 'Teams check whether their chosen direction actually addresses the safety problem they set out to solve.' },
       { label: 'Exit Ticket', text: 'Homework: a Design Planning Template, diagramming the design and justifying material and structure choices using science.' }
     ]}
   ]
