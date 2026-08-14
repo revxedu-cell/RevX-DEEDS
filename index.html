@@ -170,6 +170,44 @@
 }
 .video-embed { position: relative; width: 100%; padding-top: 56.25%; background: #000; }
 .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* ── EXAMPLE PROJECT CARDS ── */
+.example-card { border: 0.5px solid var(--gray-200); margin-bottom: 12px; background: #fff; scroll-margin-top: 96px; overflow: hidden; }
+.example-toggle {
+  width: 100%; display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px; background: none; border: none; cursor: pointer; text-align: left;
+}
+.example-toggle:hover { background: var(--gray-50, #fafafa); }
+.example-thumb { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.example-toggle-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.example-toggle-title { font-family: var(--font-display); font-size: 17px; color: var(--gray-900); }
+.example-toggle-sub { font-size: 11.5px; color: var(--gray-700); }
+.example-toggle-question { font-size: 13px; color: var(--gray-900); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.example-toggle-arrow { font-size: 13px; color: var(--gray-400); flex-shrink: 0; transition: transform 0.2s; }
+.example-card.open .example-toggle-arrow { transform: rotate(180deg); }
+.example-body { display: none; border-top: 0.5px solid var(--gray-200); }
+.example-card.open .example-body { display: block; }
+.example-standards-row { padding: 12px 24px 0; }
+.example-standards { font-size: 11px; color: var(--gray-400); white-space: nowrap; padding-top: 3px; }
+.example-phases-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+.example-phase-col { padding: 16px 16px 20px; border-left: 0.5px solid var(--gray-200); }
+.example-phase-col:first-child { border-left: none; }
+.example-phase-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; display: inline-block; color: #fff; margin-bottom: 6px; }
+.example-phase-days { font-size: 10.5px; color: var(--gray-400); margin-bottom: 8px; display: block; }
+.example-phase-body { font-size: 12.5px; color: var(--gray-700); line-height: 1.55; }
+.example-doc-row { padding: 14px 24px; border-top: 0.5px solid var(--gray-200); }
+.example-doc-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #1a4c81; text-decoration: none; }
+.example-doc-link:hover { text-decoration: underline; }
+.example-hero { width: 100%; height: 240px; object-fit: cover; display: block; }
+@media (max-width: 900px) {
+  .example-phases-grid { grid-template-columns: 1fr; }
+  .example-phase-col { border-left: none; border-top: 0.5px solid var(--gray-200); }
+  .example-phase-col:first-child { border-top: none; }
+  .example-toggle-question { white-space: normal; }
+}
+@media (max-width: 600px) {
+  .example-hero { height: 180px; }
+}
 </style>
 </head>
 <body>
@@ -196,7 +234,7 @@
           <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
         </div>
       </div>
-      <a href="examples.html" class="site-nav-link">Examples</a>
+      <a href="#examples" class="site-nav-link">Examples</a>
     </div>
   </div>
 </nav>
@@ -265,6 +303,140 @@
           <span class="phase-card-desc">Students present their work publicly and reflect on what they've learned and contributed.</span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- ── EXAMPLE PROJECTS ── -->
+  <section id="examples" style="padding:56px 0 64px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200,#e5e7eb);">
+    <div class="container" style="max-width:1200px;margin:0 auto;padding:0 24px;">
+      <h2 style="font-size:clamp(22px,3vw,32px);font-weight:700;color:#1a1f2e;margin-bottom:12px;line-height:1.25;">Example Projects</h2>
+      <p style="color:var(--gray-700);max-width:70ch;margin-bottom:28px;">Real DEEDS units from partner classrooms, from Discover through Share.</p>
+
+      <!-- Peaceful Paws -->
+      <div class="example-card" id="peaceful-paws">
+        <button class="example-toggle" onclick="toggleExample(this)" aria-expanded="false">
+          <img class="example-thumb" src="https://images.unsplash.com/photo-1604606363386-dd3f2357ad87?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A dog in foster care" loading="lazy">
+          <div class="example-toggle-text">
+            <span class="example-toggle-title">Peaceful Paws</span>
+            <span class="example-toggle-sub">Grade 2</span>
+            <span class="example-toggle-question">How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?</span>
+          </div>
+          <span class="example-toggle-arrow">&#9662;</span>
+        </button>
+        <div class="example-body">
+          <img class="example-hero" src="https://images.unsplash.com/photo-1604606363386-dd3f2357ad87?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A dog in foster care" loading="lazy">
+          <div class="example-standards-row"><span class="example-standards">2-PS1-1 · 2-PS1-2 · 2-PS1-3 · K-2-ETS1-1 · K-2-ETS1-2 · K-2-ETS1-3</span></div>
+          <div class="example-phases-grid">
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--discover)">Discover</span>
+            <span class="example-phase-days">Sessions 1–5</span>
+            <p class="example-phase-body">Students meet anxious dogs in foster care through a visit from a Muddy Paws Rescue worker and build a shared understanding of the challenge, who is affected, and why it matters.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--examine)">Examine</span>
+            <span class="example-phase-days">Sessions 6–13</span>
+            <p class="example-phase-body">Students investigate the science behind dog anxiety, observing and testing materials, classifying their properties, and analyzing foster care data to determine which materials are best suited for a calming toy.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--engineer)">Engineer</span>
+            <span class="example-phase-days">Sessions 14–18</span>
+            <p class="example-phase-body">Students design, build, and refine calming toys for dogs in foster care, selecting materials based on evidence, planning their build, and making revisions based on testing and peer feedback.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--do)">Do</span>
+            <span class="example-phase-days">Sessions 19–21</span>
+            <p class="example-phase-body">Students bring their calming toys to dogs in foster care, observe how the dogs respond, and use their evidence to evaluate what worked, what didn't, and what they would do differently.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--share)">Share</span>
+            <span class="example-phase-days">Sessions 22–25</span>
+            <p class="example-phase-body">Students present their calming toys and learning to Muddy Paws Rescue and invited families, explaining what they discovered, how their solution was designed, and what the evidence showed.</p>
+          </div>
+        </div>
+          <div class="example-doc-row">
+          <a href="https://docs.google.com/document/d/1tGzeZ5BMGzfgHtsrJO12LG5LpGgteZWCVNzwCEFPdgM/edit?usp=sharing" target="_blank" class="example-doc-link">View Full Example →</a>
+        </div>
+        </div>
+      </div>
+
+      <!-- Crowd Power -->
+      <div class="example-card" id="crowd-power">
+        <button class="example-toggle" onclick="toggleExample(this)" aria-expanded="false">
+          <img class="example-thumb" src="https://images.unsplash.com/photo-1706677258631-43968c883b6d?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A large crowd of people walking down a busy street" loading="lazy">
+          <div class="example-toggle-text">
+            <span class="example-toggle-title">Crowd Power: The Physics of Protest</span>
+            <span class="example-toggle-sub">Grade 9&ndash;10</span>
+            <span class="example-toggle-question">How can we use physics to help people participate in public demonstrations more safely and effectively?</span>
+          </div>
+          <span class="example-toggle-arrow">&#9662;</span>
+        </button>
+        <div class="example-body">
+          <img class="example-hero" src="https://images.unsplash.com/photo-1706677258631-43968c883b6d?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A large crowd of people walking down a busy street" loading="lazy">
+          <div class="example-standards-row"><span class="example-standards">HS-PS2-1 · HS-PS2-2 · HS-PS2-3</span></div>
+          <div class="example-phases-grid">
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--discover)">Discover</span>
+            <p class="example-phase-body">Students examine real protest environments and hear from organizers about challenges related to crowd movement, communication, visibility, accessibility, and safety.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--examine)">Examine</span>
+            <p class="example-phase-body">Students investigate forces, motion, momentum, energy, and wave behavior through laboratory investigations connected to specific problems encountered during public demonstrations.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--engineer)">Engineer</span>
+            <p class="example-phase-body">Teams design and build tools such as portable communication systems, safer crowd barriers, visibility devices, or accessibility supports that apply physics to a documented user need.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--do)">Do</span>
+            <p class="example-phase-body">Students test their designs in realistic crowd scenarios, collect performance data and user feedback, and analyze how conditions affect safety and effectiveness.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--share)">Share</span>
+            <p class="example-phase-body">Students demonstrate their solutions to organizers or civil-rights partners, defend their design choices using physics, and reflect on the relationship between technical design and civic participation.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Nobody's Listening -->
+      <div class="example-card" id="nobodys-listening">
+        <button class="example-toggle" onclick="toggleExample(this)" aria-expanded="false">
+          <img class="example-thumb" src="https://images.unsplash.com/photo-1757745911574-ab11b6ef6188?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A visitor looking closely at a vase in a museum exhibit" loading="lazy">
+          <div class="example-toggle-text">
+            <span class="example-toggle-title">Nobody's Listening</span>
+            <span class="example-toggle-sub">Grade 6</span>
+            <span class="example-toggle-question">How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?</span>
+          </div>
+          <span class="example-toggle-arrow">&#9662;</span>
+        </button>
+        <div class="example-body">
+          <img class="example-hero" src="https://images.unsplash.com/photo-1757745911574-ab11b6ef6188?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A visitor looking closely at a vase in a museum exhibit" loading="lazy">
+          <div class="example-standards-row"><span class="example-standards">6.2 · 6.3 · 6.4</span></div>
+          <div class="example-phases-grid">
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--discover)">Discover</span>
+            <p class="example-phase-body">Students experience an immersive exhibition about communities affected by conflict and examine how war is represented differently by witnesses, governments, journalists, and historians.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--examine)">Examine</span>
+            <p class="example-phase-body">Students study historical context, primary sources, oral histories, and media accounts to analyze causes, consequences, perspective, and the reliability of evidence.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--engineer)">Engineer</span>
+            <p class="example-phase-body">Working as historians and experience designers, students create virtual or multimedia exhibits that combine accurate historical evidence with carefully chosen stories and artifacts.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--do)">Do</span>
+            <p class="example-phase-body">Students invite peers and community members to experience the exhibits and collect feedback about what audiences learned, felt, questioned, or reconsidered.</p>
+          </div>
+          <div class="example-phase-col">
+            <span class="example-phase-name" style="background:var(--share)">Share</span>
+            <p class="example-phase-body">Students defend their curatorial decisions, reflect on the responsibilities involved in representing other people's experiences, and explain how their historical thinking changed.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -372,6 +544,20 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.sr-hidden').forEach(el => revealObs.observe(el));
+
+// Example project card toggle
+function toggleExample(btn) {
+  const card = btn.closest('.example-card');
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.example-card.open').forEach(c => {
+    c.classList.remove('open');
+    c.querySelector('.example-toggle').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    card.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
 </script>
 </body>
 </html>
