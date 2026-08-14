@@ -8,6 +8,41 @@
 <link rel="stylesheet" href="revx.css">
 <style>
 :root { --phase-color: var(--examine); --phase-color-hex: #0a9b19; }
+
+/* ── SAMPLE EXAMINE PLANS ── */
+.sc-project-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.sc-project-tab { font-family: var(--font-display); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; padding: 8px 16px; background: #fff; border: 1px solid var(--gray-200); cursor: pointer; color: var(--gray-700); }
+.sc-project-tab.on { background: var(--phase-color-hex); border-color: var(--phase-color-hex); color: #fff; }
+.sc-project-panel { display: none; }
+.sc-project-panel.on { display: block; }
+.sc-overview { display: flex; gap: 24px; flex-wrap: wrap; }
+.sc-overview-item { font-size: 13px; color: var(--gray-700); }
+.sc-overview-label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--phase-color-hex); margin-bottom: 2px; }
+
+/* Calendar strip */
+.sc-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.sc-tile { flex: 1; min-width: 130px; background: #fff; border: 1px solid var(--gray-200); border-top: 4px solid var(--gray-200); cursor: pointer; padding: 14px 14px 16px; transition: border-color 0.15s, box-shadow 0.15s; position: relative; }
+.sc-tile:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.sc-tile.on { border-top-color: var(--phase-color-hex); background: var(--phase-color-hex); }
+.sc-tile-day { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-500); margin-bottom: 6px; }
+.sc-tile.on .sc-tile-day { color: rgba(255,255,255,0.75); }
+.sc-tile-num { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--gray-900); line-height: 1; margin-bottom: 8px; }
+.sc-tile.on .sc-tile-num { color: #fff; }
+.sc-tile-title { font-size: 12px; font-weight: 600; color: var(--gray-700); line-height: 1.35; }
+.sc-tile.on .sc-tile-title { color: #fff; }
+.sc-tile-pointer { position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 9px solid var(--phase-color-hex); display: none; }
+.sc-tile.on .sc-tile-pointer { display: block; }
+
+/* Detail panel (the "cartridge" that opens) */
+.sc-detail { margin-top: 18px; background: #fff; border: 1px solid var(--phase-color-hex); border-top: 4px solid var(--phase-color-hex); padding: 24px 26px; animation: sc-open 0.2s ease; }
+@keyframes sc-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.sc-detail-title { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--gray-900); margin-bottom: 4px; }
+.sc-detail-summary { font-size: 14px; color: var(--gray-700); margin-bottom: 18px; }
+.sc-beat { display: flex; gap: 12px; margin-bottom: 12px; }
+.sc-beat:last-child { margin-bottom: 0; }
+.sc-beat-label { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--phase-color-hex); width: 130px; flex-shrink: 0; padding-top: 2px; }
+.sc-beat-text { font-size: 13px; color: var(--gray-700); line-height: 1.55; }
+@media (max-width: 700px) { .sc-tile { min-width: 92px; } .sc-tile-title { display: none; } .sc-beat { flex-direction: column; gap: 4px; } .sc-beat-label { width: auto; } }
 </style>
 </head>
 <body>
@@ -57,11 +92,37 @@
 
 <nav class="section-subnav" aria-label="Page sections">
   <div class="section-subnav-inner">
-    <button class="snb on" data-t="how">Student Experience</button>
-    <button class="snb" data-t="success">Success Criteria</button>
+    <button class="snb on" data-t="success">Success Criteria</button>
+    <button class="snb" data-t="how">Student Experience</button>
+    <button class="snb" data-t="calendar">Sample Examine Plans</button>
     <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
+
+<section class="full-section" id="success">
+  <div class="container">
+    <span class="eyebrow">By the End</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
+    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Examine, students should demonstrate growth in three areas of disciplinary reasoning and evidence use:</p>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Apply Disciplinary Concepts</h4></div>
+        <p>Accurately apply targeted content standards to explain how the system behind the challenge operates and what causes the problem.</p>
+        <span class="sc-align">NGSS SEP 2, SEP 6 · CCSS R.1, R.4, W.2 · C3 D2</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Identify &amp; Analyze Root Causes</h4></div>
+        <p>Use disciplinary evidence to identify underlying causes, analyze impact and magnitude, and compare competing explanations.</p>
+        <span class="sc-align">NGSS SEP 4, SEP 6 · CCSS W.1 · C3 D3</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Evaluate &amp; Justify Solutions</h4></div>
+        <p>Compare solution pathways using criteria and evidence, then defend a solution direction by synthesizing findings across all instructional cycles.</p>
+        <span class="sc-align">NGSS SEP 7, ETS1-2 · CCSS W.1, W.9, SL.4 · C3 D4.6</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="how" style="padding-top:52px;">
   <div class="container">
@@ -113,28 +174,60 @@
   </div>
 </section>
 
-<section class="full-section" id="success">
+<!-- ── SAMPLE EXAMINE PLANS ── -->
+<section class="section" id="calendar" style="padding-top:40px;padding-bottom:48px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
   <div class="container">
-    <span class="eyebrow">By the End</span>
-    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
-    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Examine, students should demonstrate growth in three areas of disciplinary reasoning and evidence use:</p>
-    <div class="sc-grid">
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Apply Disciplinary Concepts</h4></div>
-        <p>Accurately apply targeted content standards to explain how the system behind the challenge operates and what causes the problem.</p>
-        <span class="sc-align">NGSS SEP 2, SEP 6 · CCSS R.1, R.4, W.2 · C3 D2</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Identify &amp; Analyze Root Causes</h4></div>
-        <p>Use disciplinary evidence to identify underlying causes, analyze impact and magnitude, and compare competing explanations.</p>
-        <span class="sc-align">NGSS SEP 4, SEP 6 · CCSS W.1 · C3 D3</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Evaluate &amp; Justify Solutions</h4></div>
-        <p>Compare solution pathways using criteria and evidence, then defend a solution direction by synthesizing findings across all instructional cycles.</p>
-        <span class="sc-align">NGSS SEP 7, ETS1-2 · CCSS W.1, W.9, SL.4 · C3 D4.6</span>
-      </div>
+    <span class="eyebrow">See It In Action</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:20px;">Sample Examine Plans</h2>
+
+    <div class="sc-project-tabs">
+      <button class="sc-project-tab on" data-project="peaceful-paws">Peaceful Paws</button>
+      <button class="sc-project-tab" data-project="nobodys-listening">Nobody's Listening</button>
+      <button class="sc-project-tab" data-project="crowd-power">Crowd Power</button>
     </div>
+
+    <div class="sc-project-panel on" id="sc-panel-peaceful-paws">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Peaceful Paws</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>K&ndash;2</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Muddy Paws Rescue</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physical Science &amp; Engineering</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Examine Duration</span>8 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students investigate the science behind dog anxiety, observing and testing materials, classifying their properties, and analyzing evidence to determine which materials are best suited for a calming toy.</p>
+      <div class="sc-strip" data-project-strip="peaceful-paws"></div>
+      <div class="sc-detail" data-project-detail="peaceful-paws"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-nobodys-listening">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Nobody's Listening</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>6</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Nobody's Listening (Ryan D'Souza)</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Social Studies</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Examine Duration</span>19 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students build map literacy, then research their region's conflict across three cycles: establishing geographic context, investigating historical roots, and identifying the deeper factors that keep the conflict going.</p>
+      <div class="sc-strip" data-project-strip="nobodys-listening"></div>
+      <div class="sc-detail" data-project-detail="nobodys-listening"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-crowd-power">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Crowd Power: The Physics of Protest</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we use physics to help people participate in public demonstrations more safely and effectively?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>9&ndash;10</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>NYCLU</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physics</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Examine Duration</span>6 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students use Newton's Laws, momentum, and impulse to explain how people and objects move and collide in crowded spaces, applying their understanding to evaluate safety risks and begin designing a solution.</p>
+      <div class="sc-strip" data-project-strip="crowd-power"></div>
+      <div class="sc-detail" data-project-detail="crowd-power"></div>
+    </div>
+
   </div>
 </section>
 
@@ -248,7 +341,7 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['how','success','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
 
 
 
@@ -328,6 +421,259 @@ function closeProtocolDrawer() {
 }
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeProtocolDrawer();
+});
+
+// Sample Examine Plans — session data
+const scSessionData = {
+  'peaceful-paws': [
+    { day: 'Day 6', num: 6, title: 'Generate Questions', summary: 'Students ask questions and observe how current dog toys do or do not help dogs feel calm.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Prompt: What is the problem we are trying to solve for dogs?' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Phase 1' },
+      { label: 'Activity · 12–15 min', text: 'Students observe dog toys and use a Notice &amp; Question routine to identify what helps or does not help dogs feel calm.' },
+      { label: 'Closing · 3–5 min', text: 'One problem we want to solve.' }
+    ]},
+    { day: 'Day 7', num: 7, title: 'Observe Material Properties', summary: 'Students observe and describe materials using their properties.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Quick review: What materials did we see yesterday?' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Phase 2' },
+      { label: 'Activity · 12–15 min', text: 'Students explore materials and use an Observe &amp; Describe routine to name properties (soft, rough, bendy, hard) and connect them to how a dog might feel using them.' },
+      { label: 'Closing · 3–5 min', text: 'One material and how it feels.' }
+    ]},
+    { day: 'Day 8', num: 8, title: 'Classify Materials', summary: 'Students group materials based on shared properties and identify patterns.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Review property words and examples.' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Phase 3' },
+      { label: 'Activity · 12–15 min', text: 'Students group materials by shared properties and identify patterns (soft, flexible, etc.) and discuss which might feel calming to dogs.' },
+      { label: 'Discussion · 5 min', text: 'A group of materials and what they share.' },
+      { label: 'Closing · 3–5 min', text: 'Reflect and record.' }
+    ]},
+    { day: 'Day 9', num: 9, title: 'Test Materials', summary: 'Students test materials to observe how their properties affect how well they could calm a dog.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Prompt: What makes a material good for a calming toy?' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Phase 4' },
+      { label: 'Activity · 12–15 min', text: 'Students test materials (squeeze, bend, pull) and observe how they behave, recording results about which feel soft, safe, and calming.' },
+      { label: 'Closing · 3–5 min', text: 'One material that worked well.' }
+    ]},
+    { day: 'Day 10', num: 10, title: 'Analyze Data', summary: 'Students analyze test results to determine which materials are best for a calming toy.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Review test results.' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1f7ShEu9q608SubV79hrjvBZeSLq-JR0fMXWl_JJCbko/edit" target="_blank">Materials that Help Calm Animals</a>, Phase 5' },
+      { label: 'Activity · 12–15 min', text: 'Students use a Data Compare routine to analyze results and determine which materials are best suited to help dogs feel calm, identifying patterns across data.' },
+      { label: 'Closing · 3–5 min', text: 'Best material and why.' }
+    ]},
+    { day: 'Day 11', num: 11, title: 'Explore How Toys Are Made', summary: 'Students examine how objects are made of parts.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Prompt: What are calming toys made of?' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Phase 1' },
+      { label: 'Activity · 12–15 min', text: 'Students examine objects to identify parts and materials and discuss how different parts work together.' },
+      { label: 'Closing · 3–5 min', text: 'One part and what it does.' }
+    ]},
+    { day: 'Day 12', num: 12, title: 'Apply Material Knowledge', summary: 'Students connect materials to calming functions.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Review parts + materials.' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Phase 2' },
+      { label: 'Activity · 12–15 min', text: 'Students connect material choices to calming effects.' },
+      { label: 'Closing · 3–5 min', text: 'One material that helps calm.' }
+    ]},
+    { day: 'Day 13', num: 13, title: 'Choose a Solution Direction', summary: 'Students use evidence to define a plan.', beats: [
+      { label: 'Opening · 3–5 min', text: 'Prompt: How do we use what we learned to build a solution?' },
+      { label: 'Collab. Science · 5–8 min', text: '<a href="https://docs.google.com/document/d/1zLGI8XmHDv7hRn4STZBCvqIEWOH520aPTG59K5FB0NE/edit" target="_blank">Making Prototypes</a>, Phase 3' },
+      { label: 'Protocol · 12–15 min', text: '<strong>Claim + Evidence:</strong> Students decide which materials and design will best help dogs feel calm.' },
+      { label: 'Closing · 3–5 min', text: 'Our solution should use ___ because ___.' }
+    ]}
+  ],
+  'nobodys-listening': [
+    { day: 'Day 6', num: 6, title: 'Compare Map Types', summary: 'Students begin building map literacy and start researching conflict summaries.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Opening · 7 min', text: 'Preview the Performance Task; Fueling Inquiry.' },
+      { label: 'Activity · 20 min', text: 'Read conflict summaries and map the conflicts as a class.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 7', num: 7, title: 'Form Region Teams', summary: 'Students form region teams and begin researching their assigned conflict.', beats: [
+      { label: 'Protocol · 7 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Opening · 10 min', text: 'Form region teams and create team agreements.' },
+      { label: 'Activity · 20 min', text: 'Research and unpack the conflict.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 8', num: 8, title: 'Investigate Map Types', summary: 'Students investigate the parts and types of maps through a gallery walk.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 17 min', text: 'Investigate: Parts and Types of Maps (Gallery Walk).' },
+      { label: 'Activity · 5 min', text: 'Put It Together — video: What is a Map?' },
+      { label: 'Discussion · 5 min', text: 'Debrief.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 9', num: 9, title: 'Investigate Scale and Location', summary: 'Students investigate scale and location, then begin gathering maps of their region.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 12 min', text: 'Investigate: Scale and Location (small group exploration).' },
+      { label: 'Activity · 5 min', text: 'Put It Together: Scale and Location.' },
+      { label: 'Activity · 10 min', text: 'Find and download maps of the countries in your region.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 10', num: 10, title: 'Write Region Overview', summary: 'Students complete the Performance Task, writing a short overview of their region for the exhibit.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 25 min', text: 'Performance Task: Write a short overview of your region for the exhibit.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 11', num: 11, title: 'Begin the StoryMap', summary: 'Students revisit their team agreements and begin building the first part of their StoryMap.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Opening · 10 min', text: 'Fueling Inquiry; revisit team agreements.' },
+      { label: 'Activity · 15 min', text: 'Introduction to StoryMaps — begin building the first part using last week\'s Performance Task content.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 12', num: 12, title: 'Finish the First StoryMap Layer', summary: 'Students finish developing the first part of their StoryMap.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 20 min', text: 'Finish developing the first part of the StoryMap.' },
+      { label: 'Closing · 10 min', text: 'Learning review and wrap up.' }
+    ]},
+    { day: 'Day 13', num: 13, title: 'Explore Map Projections', summary: 'Students investigate why all world maps are distorted in some way.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Opening · 5 min', text: 'Preview the Performance Task; Fueling Inquiry.' },
+      { label: 'Activity · 12 min', text: 'Investigate and Connect: Exploring Projections.' },
+      { label: 'Discussion · 10 min', text: 'Discussion circle and video: Why All World Maps Are Wrong.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 14', num: 14, title: 'Study Political Borders', summary: 'Students learn about political maps and borders, then read and discuss how borders shape conflict.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 5 min', text: 'Minilesson: Political Maps and Borders.' },
+      { label: 'Activity · 20 min', text: 'Read, annotate, and discuss: Borders.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 15', num: 15, title: 'Examine Viewpoints', summary: 'Students read and discuss competing viewpoints on the conflict and prepare for a Socratic Seminar.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>.' },
+      { label: 'Activity · 20 min', text: 'Read, annotate, and discuss: Viewpoints.' },
+      { label: 'Opening · 5 min', text: 'Preview the Socratic Seminar structure.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 16', num: 16, title: 'Socratic Seminar on Viewpoints', summary: 'Students discuss multiple viewpoints on the conflict in a Socratic Seminar.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>.' },
+      { label: 'Protocol · 20 min', text: '<strong>Socratic Seminar:</strong> Read, annotate, and discuss: Viewpoints.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 17', num: 17, title: 'Continue the StoryMap', summary: 'Students revisit their team agreements and continue building their StoryMap with this week\'s new content.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>.' },
+      { label: 'Opening · 10 min', text: 'Fueling Inquiry; revisit team agreements.' },
+      { label: 'Activity · 15 min', text: 'Continue building the StoryMap, incorporating this week\'s new map layer content.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 18', num: 18, title: 'Begin Contributing Factors', summary: 'Students begin the Performance Task on contributing factors and get feedback on their plans.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1RaZuD9Epmwpeo2cU53jsEDLHwWZk1fWG4vpdSUB-wxk/edit" target="_blank">Impact of the Physical Environment on Society</a>.' },
+      { label: 'Activity · 10 min', text: 'Start Performance Task: Contributing Factors.' },
+      { label: 'Protocol · 10 min', text: 'TAG Feedback and revisions.' },
+      { label: 'Closing · 10 min', text: 'Check in on personal goals; wrap up.' }
+    ]},
+    { day: 'Day 19', num: 19, title: 'Build the Historical Events Layer', summary: 'Students build the historical events layer of their StoryMap.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>.' },
+      { label: 'Activity · 20 min', text: 'Build the historical events layer in StoryMaps.' },
+      { label: 'Closing · 10 min', text: 'Learning review and wrap up.' }
+    ]},
+    { day: 'Day 20', num: 20, title: 'Find the Stories', summary: 'Students begin investigating patterns across different types of maps to find the story behind their conflict.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>.' },
+      { label: 'Opening · 10 min', text: 'Revisit team agreements; task preview and Fueling Inquiry.' },
+      { label: 'Activity · 17 min', text: 'Minilesson: Types of Maps. Begin to investigate: Finding the Stories.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 21', num: 21, title: 'Continue Finding the Stories', summary: 'Students continue their investigation and discuss what they\'re finding.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>.' },
+      { label: 'Activity · 15 min', text: 'Continue investigation: Finding the Stories.' },
+      { label: 'Discussion · 10 min', text: 'Discussion circle.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 22', num: 22, title: 'Color-Code Patterns of Conflict', summary: 'Students color-code a map of their region to reveal patterns of conflict and cooperation.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>.' },
+      { label: 'Activity · 25 min', text: 'Investigate: color-code a map of your region to show patterns of conflict and cooperation.' },
+      { label: 'Closing · 5 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 23', num: 23, title: 'Identify Contributing Factors', summary: 'Students begin identifying the key factors contributing to their region\'s conflict.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1JqYjOWt5_kdLlwHG4rGZB0kZYxHHA4JJz1lr41Xb9Kk/edit" target="_blank">The Historical Tensions Fueling the Russia-Ukraine War</a>.' },
+      { label: 'Activity · 20 min', text: 'Begin Performance Task: identify contributing factors and select images/maps.' },
+      { label: 'Protocol · 10 min', text: 'TAG Feedback on draft plans for contributing factors.' },
+      { label: 'Closing · 3 min', text: 'Wrap up.' }
+    ]},
+    { day: 'Day 24', num: 24, title: 'Complete the Contributing Factors Layer', summary: 'Students finish their contributing-factors map layer and close the StoryMap sequence.', beats: [
+      { label: 'Protocol · 10 min', text: '<strong>Collaborative Reading:</strong> <a href="https://docs.google.com/document/d/1q_oBg3NH7jLvN7gUbbxPAqip2uLC2Cpx1SEyfHMcae4/edit" target="_blank">Territorial Disputes in the South China Sea</a>.' },
+      { label: 'Activity · 20 min', text: 'Continue the Performance Task and build in StoryMaps.' },
+      { label: 'Closing · 10 min', text: 'Learning review and wrap up.' }
+    ]}
+  ],
+  'crowd-power': [
+    { day: 'Day 3', num: 3, title: 'Explore Newton\'s Second Law', summary: 'Students investigate how mass and speed affect motion and begin exploring Newton\'s Second Law.', beats: [
+      { label: 'Opening · 10 min', text: 'Provocation — Move the Mass: roll a cart or water jug into a chair at different masses or speeds. What did you notice? Which was harder to stop? If this were a person in a crowd, what could go wrong?' },
+      { label: 'Protocol · 15 min', text: 'Generate inquiry questions to guide learning during Examine.' },
+      { label: 'Activity · 10 min', text: 'Minilesson — Newton\'s Second Law (F=ma) and momentum (p=mv): force depends on mass and acceleration; more mass or speed means more difficult to stop.' },
+      { label: 'Activity · 50 min', text: 'Two rounds of station rotations exploring what happens when people move, collide, or get compressed in a crowd: <a href="https://docs.google.com/document/d/1PNALeRi9crY7Xt8FfktIbH6NFMkyjkAJLL2ona66qMg/edit" target="_blank">Speed Up/Slow Down, Pushback, Bumper Collisions</a>, <strong>Collaborative Science</strong>.' },
+      { label: 'Closing · 5 min', text: 'Exit ticket.' }
+    ]},
+    { day: 'Day 4', num: 4, title: 'Apply Newton\'s Third Law', summary: 'Students learn about action-reaction forces and apply their understanding to a real-world transfer task.', beats: [
+      { label: 'Activity · 10 min', text: 'Minilesson — Newton\'s Third Law: every force comes with an equal, opposite force; physical interactions in crowds cause chain reactions.' },
+      { label: 'Activity · 50 min', text: 'Two rounds of station rotations.' },
+      { label: 'Protocol · 20 min', text: 'Transfer Task: <a href="https://docs.google.com/document/d/1rm3-BhglZjiQywetLcz2PEqNhh1qokORApweUWBQkks/edit?tab=t.0#bookmark=id.nawr6u6yj3tv" target="_blank">Backpack Collisions</a> (in pairs).' },
+      { label: 'Checkpoint · 10 min', text: 'Check for Understanding Quiz (HS-PS2-1).' },
+      { label: 'Closing', text: 'Homework: write an evidence-based briefing for the NYCLU explaining the physical risks of moving crowds.' }
+    ]},
+    { day: 'Day 5', num: 5, title: 'Investigate Momentum', summary: 'Students explore how momentum explains why some objects — or people — are harder to stop than others.', beats: [
+      { label: 'Opening · 10 min', text: 'Provocation — Newton\'s Cradle demo (or marbles/dominoes/water bottles). What did you observe? Why did only some objects move? What does this remind you of in a crowd?' },
+      { label: 'Discussion · 20 min', text: 'Revisit inquiry questions; partner feedback on homework.' },
+      { label: 'Activity · 10 min', text: 'Minilesson — momentum is the product of mass and velocity (p=mv); more mass or speed means more momentum. Momentum explains why some things are harder to stop (skateboard vs. bus).' },
+      { label: 'Activity · 50 min', text: 'Two rounds of station rotations: <a href="https://docs.google.com/document/d/1J3O_cE_1fTUgK9w1YtALcu8G-jObNJMZqKNOVA45mR8/edit" target="_blank">Drop to Stop, Body Brakes, Protect the Egg</a>, <strong>Collaborative Science</strong>.' }
+    ]},
+    { day: 'Day 6', num: 6, title: 'Analyze Conservation of Momentum', summary: 'Students learn that momentum is conserved in collisions and use that idea to analyze real crowd scenarios.', beats: [
+      { label: 'Activity · 10 min', text: 'Minilesson — in a closed system, total momentum before equals momentum after; momentum transfers between objects during a collision; elastic vs. inelastic collisions affect energy but momentum is always conserved (bumper cars, pileups).' },
+      { label: 'Activity · 50 min', text: 'Two rounds of station rotations, continuing prior investigations.' },
+      { label: 'Protocol · 20 min', text: 'Transfer Task: <a href="https://docs.google.com/document/d/1rm3-BhglZjiQywetLcz2PEqNhh1qokORApweUWBQkks/edit?tab=t.0#bookmark=id.oogy4eghwxm3" target="_blank">Slipping On Ice</a> (in pairs).' },
+      { label: 'Checkpoint · 10 min', text: 'Check for Understanding Quiz (HS-PS2-2).' },
+      { label: 'Closing', text: 'Homework: memo to the NYCLU on reducing harm from moving crowds — slow people down, spread out, or change materials/environment?' }
+    ]},
+    { day: 'Day 7', num: 7, title: 'Apply Impulse to Safety Design', summary: 'Students learn how increasing impact time reduces force, the key idea behind engineering safer collisions.', beats: [
+      { label: 'Opening · 10 min', text: 'Provocation — two dummy-collision video clips (padded barrier vs. concrete wall). Why did one dummy experience more force? What role did time play?' },
+      { label: 'Discussion · 20 min', text: 'Revisit inquiry questions; partner feedback on homework.' },
+      { label: 'Activity · 10 min', text: 'Minilesson — Impulse equation FΔt = mΔv: increasing impact time decreases force. This is the key to engineering safer collisions.' },
+      { label: 'Activity · 25 min', text: 'Two rounds of station rotations: defining design criteria and constraints, gallery walk of design inspirations, <strong>Collaborative Science</strong>.' }
+    ]},
+    { day: 'Day 8', num: 8, title: 'Select a Solution Direction', summary: 'Students synthesize their learning to choose and justify a design direction for their safety solution.', beats: [
+      { label: 'Protocol · 25 min', text: '<strong>Claim + Evidence:</strong> Teams synthesize and agree on design criteria, brainstorm and evaluate multiple solutions, and select one to develop, using evidence from their investigations.' },
+      { label: 'Protocol · 20 min', text: 'Transfer Task: <a href="https://docs.google.com/document/d/1rm3-BhglZjiQywetLcz2PEqNhh1qokORApweUWBQkks/edit?tab=t.0#bookmark=id.1eu3s7okw7h3" target="_blank">Subway Slam</a> (in pairs).' },
+      { label: 'Checkpoint · 10 min', text: 'Check for Understanding Quiz (HS-PS2-3).' },
+      { label: 'Closing', text: 'Homework: complete a Design Planning Template — diagram and label the design, describe how it extends time to reduce force, and justify material and structure choices using science.' }
+    ]}
+  ]
+};
+
+function scRenderStrip(project) {
+  const sessions = scSessionData[project];
+  const strip = document.querySelector('[data-project-strip="' + project + '"]');
+  strip.innerHTML = sessions.map((s, i) => `
+    <div class="sc-tile${i === 0 ? ' on' : ''}" data-idx="${i}" onclick="scSelectSession('${project}', ${i})">
+      <div class="sc-tile-day">${s.day}</div>
+      <div class="sc-tile-num">${s.num}</div>
+      <div class="sc-tile-title">${s.title}</div>
+      <div class="sc-tile-pointer"></div>
+    </div>
+  `).join('');
+  scRenderDetail(project, 0);
+}
+
+function scRenderDetail(project, idx) {
+  const s = scSessionData[project][idx];
+  const detail = document.querySelector('[data-project-detail="' + project + '"]');
+  detail.innerHTML = `
+    <div class="sc-detail-title">${s.day}: ${s.title}</div>
+    <div class="sc-detail-summary">${s.summary}</div>
+    ${s.beats.map(b => `<div class="sc-beat"><div class="sc-beat-label">${b.label}</div><div class="sc-beat-text">${b.text}</div></div>`).join('')}
+  `;
+}
+
+function scSelectSession(project, idx) {
+  document.querySelectorAll('[data-project-strip="' + project + '"] .sc-tile').forEach(t => t.classList.remove('on'));
+  document.querySelector('[data-project-strip="' + project + '"] [data-idx="' + idx + '"]').classList.add('on');
+  scRenderDetail(project, idx);
+}
+
+scRenderStrip('peaceful-paws');
+scRenderStrip('nobodys-listening');
+scRenderStrip('crowd-power');
+
+// Sample Examine Plans project tabs
+document.querySelectorAll('.sc-project-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sc-project-tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.sc-project-panel').forEach(p => p.classList.remove('on'));
+    tab.classList.add('on');
+    document.getElementById('sc-panel-' + tab.dataset.project).classList.add('on');
+  });
 });
 </script>
 </body>
