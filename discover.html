@@ -62,16 +62,11 @@
     </a>
     <div class="site-nav-links">
       <a href="index.html" class="site-nav-link">Home</a>
-      <div class="site-nav-dropdown">
-        <button class="site-nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">The Five Phases <span class="dropdown-caret">▾</span></button>
-        <div class="site-nav-dropdown-menu">
-          <a href="discover.html" class="active" aria-current="page"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
-          <a href="examine.html"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
-          <a href="engineer.html"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
-          <a href="do.html"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
-          <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
-        </div>
-      </div>
+      <a href="discover.html" class="site-nav-link active" aria-current="page"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
+      <a href="examine.html" class="site-nav-link"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
+      <a href="engineer.html" class="site-nav-link"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
+      <a href="do.html" class="site-nav-link"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
+      <a href="share.html" class="site-nav-link"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
       <a href="index.html#examples" class="site-nav-link">Examples</a>
     </div>
   </div>
@@ -469,71 +464,77 @@ document.addEventListener('keydown', (e) => {
 const scSessionData = {
   'peaceful-paws': [
     { day: 'Day 1', num: 1, title: 'Experience the Challenge', summary: 'Students encounter the problem of anxious dogs waiting to be adopted.', beats: [
-      { label: 'Opening · 3 min', text: 'Prompt: What do you know about dogs, their feelings, and their behaviors?' },
-      { label: 'Activity · 20 min', text: '<strong>Experience:</strong> Animal shelter worker visits with dogs. <strong>Protocol:</strong> Notice + Questions.' },
-      { label: 'Challenge Intro · 2 min', text: 'While dogs are waiting to be adopted, they can have feelings of anxiety or fear. Anxious animals may chew or scratch things they aren\'t supposed to, and this might keep them from getting adopted.' },
-      { label: 'Closing · 5 min', text: '<strong>Launch Reflection.</strong><ul style="margin:8px 0 0;padding-left:18px;"><li>Tell what you know so far about the problem.</li><li>Have you ever seen this problem before? Tell one way it connects to your life, school, or neighborhood.</li><li>Who might this problem affect? Name at least two people or groups and tell how they might feel.</li></ul>' }
+      { label: 'Opening', text: 'Prompt: What do you know about dogs, their feelings, and their behaviors?' },
+      { label: 'Core Activity', text: 'A shelter worker visits with real dogs. Students notice and ask questions.' },
+      { label: 'Challenge', text: 'While dogs are waiting to be adopted, they can feel scared or worried. Worried dogs may chew or scratch things, and this might keep them from getting adopted.' },
+      { label: 'Exit Ticket', text: 'Launch Reflection:<ul style="margin:8px 0 0;padding-left:18px;"><li>Tell what you know so far about this problem.</li><li>Has something like this ever happened near you? Tell one way.</li><li>Who might this problem affect? Name two and tell how they might feel.</li></ul>' }
     ]},
     { day: 'Day 2', num: 2, title: 'Understand Perspectives', summary: 'Students understand how the problem affects different people and animals.', beats: [
-      { label: 'Opening · 5 min', text: 'Quick review of yesterday\'s observations.' },
-      { label: 'Protocol · 20 min', text: '<strong>Bridging Perspectives:</strong> Short vignettes and first-person perspectives from shelter workers, families, and other stakeholders. Students discuss: Who is affected by this problem? How are they affected?' },
-      { label: 'Closing · 5 min', text: 'Begin class anchor chart: Who is affected by this problem?' }
+      { label: 'Opening', text: 'Have you ever felt left out or worried in a new place? Today we listen to other people\'s stories.' },
+      { label: 'Core Activity', text: 'Short stories from shelter workers and families help us hear who is affected by this problem, and how.' },
+      { label: 'Sensemaking', text: 'As a class, we start a chart: Who is affected by this problem?' },
+      { label: 'Exit Ticket', text: 'Name one person or animal this problem affects.' }
     ]},
     { day: 'Day 3', num: 3, title: 'Explore Evidence', summary: 'Students examine evidence about dog emotions and adoption.', beats: [
-      { label: 'Opening · 5 min', text: 'Review stakeholders chart.' },
-      { label: 'Activity · 10 min', text: 'Dog body language card sort. Students learn signs of stress, calm, and excitement.' },
-      { label: 'Protocol · 5 min', text: 'Graphic Analysis: Students analyze a pictograph of shelter data — dogs adopted when calm vs. stressed. Prompts: What do you notice? What might this tell us?' },
-      { label: 'Discussion · 5 min', text: 'Why might calm dogs get adopted faster?' },
-      { label: 'Closing · 3 min', text: 'Connect evidence to challenge: The shelter wants more dogs to get adopted. So they asked us to help dogs feel calm while they wait.' }
+      { label: 'Opening', text: 'What do you think calm dogs need to get adopted?' },
+      { label: 'Core Activity', text: 'A card sort helps us learn the signs of a stressed dog and a calm dog. Then we look at a picture chart showing how many calm dogs get adopted compared to stressed dogs.' },
+      { label: 'Sensemaking', text: 'The shelter wants more dogs to get adopted. That\'s why they asked us to help dogs feel calm.' },
+      { label: 'Exit Ticket', text: 'Why might a calm dog get adopted faster than a stressed dog?' }
     ]},
     { day: 'Day 4', num: 4, title: 'Make Meaning', summary: 'Students connect the challenge to their own lives.', beats: [
-      { label: 'Opening · 5 min', text: 'Review what we know so far.' },
-      { label: 'Protocol · 20 min', text: '<strong>Connect → Care → Contribute</strong><ul style="margin:8px 0 0;padding-left:18px;"><li><strong>Connect:</strong> How does this challenge affect you, someone you know, or your community?</li><li><strong>Care:</strong> Pick 1–2 words that explain why this matters to you. Share with the class.</li><li><strong>Contribute:</strong> Circle discussion: what could we do to help with this challenge?</li></ul>' },
-      { label: 'Closing · 5 min', text: 'Class chart: Why do we care about this challenge?' }
+      { label: 'Opening', text: 'Has something like this ever happened to you or someone you know?' },
+      { label: 'Core Activity', text: 'Connect, Care, Contribute: how does this problem connect to us? Why do we care? What could we do to help?' },
+      { label: 'Sensemaking', text: 'Class chart: Why do we care about this problem?' },
+      { label: 'Exit Ticket', text: 'Tell one reason this matters to you.' }
     ]},
     { day: 'Day 5', num: 5, title: 'Explain Why It Matters', summary: 'Students explain the challenge and its importance.', beats: [
-      { label: 'Opening · 5 min', text: 'Review charts from the week: What is happening? Who is affected? What helps?' },
-      { label: 'Activity · 20 min', text: 'Shared writing of the Discover Performance Task. Students help complete: The challenge is... / This problem affects... / It matters because...' },
-      { label: 'Closing · 10 min', text: 'Teacher reveals the engineering challenge: How can we make something that helps dogs waiting to be adopted feel calm? Students celebrate becoming product designers.' }
+      { label: 'Opening', text: 'Let\'s look back at our charts from this week. What have we learned?' },
+      { label: 'Core Activity', text: 'We write together: The problem is... This affects... It matters because...' },
+      { label: 'Sensemaking', text: 'Our teacher shares the big challenge: How can we make something that helps dogs feel calm?' },
+      { label: 'Exit Ticket', text: 'Tell what you already know about helping dogs feel calm.' }
     ]}
   ],
   'nobodys-listening': [
     { day: 'Day 1', num: 1, title: 'Experience the Challenge', summary: 'Students experience the Nobody\'s Listening exhibit and documentary to begin building empathy for a conflict most people know little about.', beats: [
-      { label: 'Opening · 10 min', text: 'Introduction to DEEDS, the challenge, and Nobody\'s Listening.' },
-      { label: 'Activity · 35 min', text: 'Learning stations: VR Experience, Nobody\'s Listening Documentary, Nobody\'s Listening Virtual Exhibit. <strong>Think, Feel, Act:</strong> Students record what they notice, how they feel, and what they want to act on.' },
-      { label: 'Closing · 15 min', text: '<strong>Launch Reflection.</strong> Students reflect on the experience and set a personal goal for the module.' }
+      { label: 'Opening', text: 'Introduction to DEEDS, the challenge, and Nobody\'s Listening.' },
+      { label: 'Core Activity', text: 'Learning stations: a VR experience, a documentary, and a virtual exhibit. Students notice, name how they feel, and consider what they want to act on.' },
+      { label: 'Exit Ticket', text: 'Launch Reflection: students reflect on the experience and set a personal goal for the module.' }
     ]},
     { day: 'Day 2', num: 2, title: 'Understand Perspectives', summary: 'Students hear directly from human rights advocate Ryan D\'Souza to understand how this conflict affects real people.', beats: [
-      { label: 'Opening · 10 min', text: 'Review notes in a discussion circle.' },
-      { label: 'Protocol · 20 min', text: '<strong>Bridging Perspectives:</strong> Students preview the Performance Task and prepare interview questions, then meet with Ryan D\'Souza over Zoom to hear his perspective as a human rights advocate. He explains why exhibits like this matter: they help the public understand today\'s conflicts and make sure these stories are not forgotten.' },
-      { label: 'Closing · 5 min', text: 'Debrief the interview.' }
+      { label: 'Opening', text: 'Provocation: What would it take to make you care about a conflict happening on the other side of the world?' },
+      { label: 'Core Activity', text: 'Students prepare interview questions, then meet with Ryan D\'Souza over Zoom to hear his perspective as a human rights advocate. He explains why exhibits like this matter: they help the public understand today\'s conflicts and make sure these stories are not forgotten.' },
+      { label: 'Sensemaking', text: 'As a class, students debrief the interview and connect it to why their work on the exhibit matters.' },
+      { label: 'Exit Ticket', text: 'Name one thing Ryan said that changed how you think about this challenge.' }
     ]},
     { day: 'Day 3', num: 3, title: 'Investigate Scale and Impact', summary: 'Students discover how many conflicts around the world go unnoticed and why raising awareness matters.', beats: [
-      { label: 'Opening · 5 min', text: 'Frame the exploration: What global conflicts need more public awareness, and how can the Nobody\'s Listening approach help? Introduce the world map with hemispheres.' },
-      { label: 'Protocol · 20 min', text: '<strong>Data Dive:</strong> Watch "10 Conflicts to Watch in 2023" and explore an interactive map, recording data on conflicts most people know little about.' },
-      { label: 'Discussion · 10 min', text: 'Think-Pair-Share on what students noticed.' },
-      { label: 'Closing · 5 min', text: 'Wrap up.' }
+      { label: 'Opening', text: 'Provocation: How many conflicts do you think are happening in the world right now? Introduce a world map with hemispheres.' },
+      { label: 'Core Activity', text: 'Students watch "10 Conflicts to Watch in 2023" and explore an interactive map, recording data on conflicts most people know little about.' },
+      { label: 'Sensemaking', text: 'Think-Pair-Share: what surprised you about the scale of conflicts most people never hear about?' },
+      { label: 'Exit Ticket', text: 'Claim with evidence: why does raising awareness about overlooked conflicts matter?' }
     ]},
     { day: 'Day 4', num: 4, title: 'Make Meaning', summary: 'Students connect the challenge to their own lives and decide why the exhibit matters to them personally.', beats: [
-      { label: 'Opening · 10 min', text: 'Review what students have learned so far about the scale of conflicts most people never hear about.' },
-      { label: 'Protocol · 25 min', text: '<strong>Connect → Care → Contribute.</strong> Connect: How does this challenge affect you, someone you know, or your community? Care: Pick 1–2 words that explain why this matters to you. Contribute: What could you do to help make sure these stories are heard?' },
-      { label: 'Closing · 5 min', text: 'Individual reflection.' }
+      { label: 'Opening', text: 'Provocation: Has a story you cared about ever been ignored or forgotten by others?' },
+      { label: 'Core Activity', text: 'Connect, Care, Contribute: how does this challenge affect you, someone you know, or your community? Why does it matter to you? What could you do to help make sure these stories are heard?' },
+      { label: 'Sensemaking', text: 'Students share out and build a class list of reasons this challenge matters.' },
+      { label: 'Exit Ticket', text: 'Individual reflection: why does this challenge matter to you personally?' }
     ]},
     { day: 'Day 5', num: 5, title: 'Explain Why It Matters', summary: 'Students explain why building this exhibit matters for making sure overlooked conflicts are not forgotten.', beats: [
-      { label: 'Activity · 35 min', text: 'Performance Task: Create a video introduction explaining the rationale for the exhibit.' },
-      { label: 'Closing · 10 min', text: 'Learning review and wrap up.' }
+      { label: 'Opening', text: 'Review the week: what have we learned about this challenge, who it affects, and why it matters?' },
+      { label: 'Core Activity', text: 'Performance Task: students create a video introduction explaining the rationale for their exhibit.' },
+      { label: 'Sensemaking', text: 'Students connect their video back to the bigger challenge: helping people understand conflicts that are too often overlooked.' },
+      { label: 'Exit Ticket', text: 'Pre-assessment: what do you already know or believe about why some conflicts get more attention than others?' }
     ]}
   ],
   'crowd-power': [
     { day: 'Day 1', num: 1, title: 'Experience the Challenge', summary: 'Students reflect on personal experiences with crowds and begin investigating why crowd movement can turn dangerous.', beats: [
-      { label: 'Opening · 30 min', text: 'Intro to DEEDS and overview of the process. <strong>Think, Feel, Act:</strong> Have you or someone you know ever felt unsafe in a big crowd? What happened? What did you notice about movement, pressure, or panic? Discuss in small groups.' },
-      { label: 'Activity · 60 min', text: 'Two rounds of station rotations: view and discuss videos and data about protest injuries and crowd dynamics; read and discuss a short text on crowd movement and stampede dynamics. <strong>Bridging Perspectives:</strong> Meet with a representative from the NYCLU to hear their perspective on the challenge.' }
+      { label: 'Opening', text: 'Intro to DEEDS and the process. Provocation: Have you or someone you know ever felt unsafe in a big crowd? What happened? What did you notice about movement, pressure, or panic?' },
+      { label: 'Core Activity', text: 'Two rounds of station rotations: videos and data on protest injuries and crowd dynamics; a short text on crowd movement and stampede dynamics; a conversation with a representative from the NYCLU to hear their perspective on the challenge.' }
     ]},
     { day: 'Day 2', num: 2, title: 'Make Meaning', summary: 'Students complete their investigation and connect the challenge to their own lives before making a claim about why it matters.', beats: [
-      { label: 'Opening · 30 min', text: 'Complete station rotations.' },
-      { label: 'Protocol · 25 min', text: '<strong>Connect → Care → Contribute.</strong> Students write a paragraph describing the challenge, how it connects to their own life or community, and why it matters, supported by at least three pieces of evidence from interviews, texts, and data.' },
-      { label: 'Discussion · 10 min', text: 'As a class, generate and refine the challenge question.' },
-      { label: 'Closing · 25 min', text: 'Form teams, create team agreements, and set personal goals for the module.' }
+      { label: 'Opening', text: 'Provocation: What would make you feel unsafe enough to leave a crowded space?' },
+      { label: 'Core Activity', text: 'Students complete their station rotations, then write a paragraph describing the challenge, how it connects to their own life or community, and why it matters, supported by evidence from interviews, texts, and data.' },
+      { label: 'Sensemaking', text: 'As a class, students generate and refine the challenge question together.' },
+      { label: 'Exit Ticket', text: 'Form teams, create team agreements, and set a personal goal for the module.' }
     ]}
   ]
 };

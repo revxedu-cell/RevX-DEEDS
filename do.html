@@ -8,6 +8,37 @@
 <link rel="stylesheet" href="revx.css">
 <style>
 :root { --phase-color: var(--do); --phase-color-hex: #FFB600; }
+
+/* ── SAMPLE DO PLANS ── */
+.sc-project-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.sc-project-tab { font-family: var(--font-display); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; padding: 8px 16px; background: #fff; border: 1px solid var(--gray-200); cursor: pointer; color: var(--gray-700); }
+.sc-project-tab.on { background: var(--phase-color-hex); border-color: var(--phase-color-hex); color: #1a1a1a; }
+.sc-project-panel { display: none; }
+.sc-project-panel.on { display: block; }
+.sc-overview { display: flex; gap: 24px; flex-wrap: wrap; }
+.sc-overview-item { font-size: 13px; color: var(--gray-700); }
+.sc-overview-label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #b87800; margin-bottom: 2px; }
+.sc-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.sc-tile { flex: 1; min-width: 130px; background: #fff; border: 1px solid var(--gray-200); border-top: 4px solid var(--gray-200); cursor: pointer; padding: 14px 14px 16px; transition: border-color 0.15s, box-shadow 0.15s; position: relative; }
+.sc-tile:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.sc-tile.on { border-top-color: var(--phase-color-hex); background: var(--phase-color-hex); }
+.sc-tile-day { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-500); margin-bottom: 6px; }
+.sc-tile.on .sc-tile-day { color: rgba(26,26,26,0.6); }
+.sc-tile-num { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--gray-900); line-height: 1; margin-bottom: 8px; }
+.sc-tile.on .sc-tile-num { color: #1a1a1a; }
+.sc-tile-title { font-size: 12px; font-weight: 600; color: var(--gray-700); line-height: 1.35; }
+.sc-tile.on .sc-tile-title { color: #1a1a1a; }
+.sc-tile-pointer { position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 9px solid var(--phase-color-hex); display: none; }
+.sc-tile.on .sc-tile-pointer { display: block; }
+.sc-detail { margin-top: 18px; background: #fff; border: 1px solid var(--phase-color-hex); border-top: 4px solid var(--phase-color-hex); padding: 24px 26px; animation: sc-open 0.2s ease; }
+@keyframes sc-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.sc-detail-title { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--gray-900); margin-bottom: 4px; }
+.sc-detail-summary { font-size: 14px; color: var(--gray-700); margin-bottom: 18px; }
+.sc-beat { display: flex; gap: 12px; margin-bottom: 12px; }
+.sc-beat:last-child { margin-bottom: 0; }
+.sc-beat-label { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #b87800; width: 100px; flex-shrink: 0; padding-top: 2px; }
+.sc-beat-text { font-size: 13px; color: var(--gray-700); line-height: 1.55; }
+@media (max-width: 700px) { .sc-tile { min-width: 92px; } .sc-tile-title { display: none; } .sc-beat { flex-direction: column; gap: 4px; } .sc-beat-label { width: auto; } }
 </style>
 </head>
 <body>
@@ -22,16 +53,11 @@
     </a>
     <div class="site-nav-links">
       <a href="index.html" class="site-nav-link">Home</a>
-      <div class="site-nav-dropdown">
-        <button class="site-nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">The Five Phases <span class="dropdown-caret">▾</span></button>
-        <div class="site-nav-dropdown-menu">
-          <a href="discover.html"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
-          <a href="examine.html"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
-          <a href="engineer.html"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
-          <a href="do.html" class="active" aria-current="page"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
-          <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
-        </div>
-      </div>
+      <a href="discover.html" class="site-nav-link"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
+      <a href="examine.html" class="site-nav-link"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
+      <a href="engineer.html" class="site-nav-link"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
+      <a href="do.html" class="site-nav-link active" aria-current="page"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
+      <a href="share.html" class="site-nav-link"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
       <a href="index.html#examples" class="site-nav-link">Examples</a>
     </div>
   </div>
@@ -57,11 +83,37 @@
 
 <nav class="section-subnav" aria-label="Page sections">
   <div class="section-subnav-inner">
-    <button class="snb on" data-t="how">Student Experience</button>
-    <button class="snb" data-t="success">Success Criteria</button>
+    <button class="snb on" data-t="success">Success Criteria</button>
+    <button class="snb" data-t="how">Student Experience</button>
+    <button class="snb" data-t="calendar">Sample Do Plans</button>
     <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
+
+<section class="full-section" id="success">
+  <div class="container">
+    <span class="eyebrow">By the End</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
+    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Do, students should demonstrate growth across three areas of real-world implementation and evidence-based evaluation:</p>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Enact a Solution</h4></div>
+        <p>Implement the solution with real users, systems, or environments, document the process, and adapt when conditions on the ground require it.</p>
+        <span class="sc-align">NGSS ETS1-3 · CCSS W.2, SL.4 · C3 D4.7</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Collect &amp; Use Evidence</h4></div>
+        <p>Gather relevant data about impact and effectiveness using appropriate tools (measurements, observations, surveys) and organize findings clearly.</p>
+        <span class="sc-align">NGSS SEP 4, SEP 5 · CCSS W.7 · MP.4</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Evaluate Impact &amp; Effectiveness</h4></div>
+        <p>Use evidence to explain what worked, what didn't, and why, identifying limitations, tradeoffs, unintended consequences, and meaningful next steps.</p>
+        <span class="sc-align">NGSS SEP 6, SEP 7 · CCSS W.1, W.9 · C3 D4.6</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="how" style="padding-top:52px;">
   <div class="container">
@@ -112,28 +164,60 @@
   </div>
 </section>
 
-<section class="full-section" id="success">
+<!-- ── SAMPLE DO PLANS ── -->
+<section class="section" id="calendar" style="padding-top:40px;padding-bottom:48px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
   <div class="container">
-    <span class="eyebrow">By the End</span>
-    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
-    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Do, students should demonstrate growth across three areas of real-world implementation and evidence-based evaluation:</p>
-    <div class="sc-grid">
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Enact a Solution</h4></div>
-        <p>Implement the solution with real users, systems, or environments, document the process, and adapt when conditions on the ground require it.</p>
-        <span class="sc-align">NGSS ETS1-3 · CCSS W.2, SL.4 · C3 D4.7</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Collect &amp; Use Evidence</h4></div>
-        <p>Gather relevant data about impact and effectiveness using appropriate tools (measurements, observations, surveys) and organize findings clearly.</p>
-        <span class="sc-align">NGSS SEP 4, SEP 5 · CCSS W.7 · MP.4</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Evaluate Impact &amp; Effectiveness</h4></div>
-        <p>Use evidence to explain what worked, what didn't, and why, identifying limitations, tradeoffs, unintended consequences, and meaningful next steps.</p>
-        <span class="sc-align">NGSS SEP 6, SEP 7 · CCSS W.1, W.9 · C3 D4.6</span>
-      </div>
+    <span class="eyebrow">See It In Action</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:20px;">Sample Do Plans</h2>
+
+    <div class="sc-project-tabs">
+      <button class="sc-project-tab on" data-project="peaceful-paws">Peaceful Paws</button>
+      <button class="sc-project-tab" data-project="nobodys-listening">Nobody's Listening</button>
+      <button class="sc-project-tab" data-project="crowd-power">Crowd Power</button>
     </div>
+
+    <div class="sc-project-panel on" id="sc-panel-peaceful-paws">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Peaceful Paws</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid #b87800;padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>K&ndash;2</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Muddy Paws Rescue</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physical Science &amp; Engineering</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Do Duration</span>3 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students test their calming toy with a real dog in foster care, collect observations, and use evidence to evaluate how well their solution worked.</p>
+      <div class="sc-strip" data-project-strip="peaceful-paws"></div>
+      <div class="sc-detail" data-project-detail="peaceful-paws"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-nobodys-listening">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Nobody's Listening</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid #b87800;padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>6</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Nobody's Listening (Ryan D'Souza)</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Social Studies</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Do Duration</span>3 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students host their exhibit for real visitors, gather feedback on its impact, and begin identifying what worked and what to improve.</p>
+      <div class="sc-strip" data-project-strip="nobodys-listening"></div>
+      <div class="sc-detail" data-project-detail="nobodys-listening"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-crowd-power">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Crowd Power: The Physics of Protest</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid #b87800;padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we use physics to help people participate in public demonstrations more safely and effectively?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>9&ndash;10</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>NYCLU</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physics</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Do Duration</span>2 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students present their safety device to the NYCLU, have them test it, and reflect on its effectiveness and potential for real-world use.</p>
+      <div class="sc-strip" data-project-strip="crowd-power"></div>
+      <div class="sc-detail" data-project-detail="crowd-power"></div>
+    </div>
+
   </div>
 </section>
 
@@ -247,7 +331,98 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['how','success','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+
+// Sample Do Plans — session data
+const scSessionData = {
+  'peaceful-paws': [
+    { day: 'Day 19', num: 19, title: 'Plan the Test & Define Success', summary: 'Students define what "calm" looks like and plan how to observe it.', beats: [
+      { label: 'Opening', text: 'How will we know if our toy helps a dog feel calm?' },
+      { label: 'Core Activity', text: 'Students define signs of calm (quiet body, still, focused) and agree on what they\'ll look for and record during testing.' },
+      { label: 'Sensemaking', text: 'Are we ready to test with a real dog?' },
+      { label: 'Exit Ticket', text: 'We will know it worked if...' }
+    ]},
+    { day: 'Day 20', num: 20, title: 'Test the Solution & Collect Data', summary: 'Students test their calming toy with a real dog and collect observations about its impact.', beats: [
+      { label: 'Core Activity', text: 'Students test their calming toy with a dog in foster care, under direct adult supervision, using a simple recording tool (draw, tally, or checklist) to capture what they observe.' },
+      { label: 'Exit Ticket', text: 'We noticed...' }
+    ]},
+    { day: 'Day 21', num: 21, title: 'Analyze Results & Improve', summary: 'Students analyze results and determine how well their solution worked.', beats: [
+      { label: 'Opening', text: 'Did our toy help dogs feel calm?' },
+      { label: 'Core Activity', text: 'Students use their observations as evidence to explain what worked, what didn\'t, and why.' },
+      { label: 'Sensemaking', text: 'What surprised us about what happened during the test?' },
+      { label: 'Exit Ticket', text: 'Next time we would...' }
+    ]}
+  ],
+  'nobodys-listening': [
+    { day: 'Day 30', num: 30, title: 'Host the Exhibit', summary: 'Students host their exhibit and gather feedback from real visitors.', beats: [
+      { label: 'Core Activity', text: 'Students host their exhibit for visitors &mdash; including students, families, and teachers &mdash; and gather feedback about their experience.' }
+    ]},
+    { day: 'Day 31', num: 31, title: 'Analyze Visitor Feedback', summary: 'Students review feedback from the exhibit and identify what to improve.', beats: [
+      { label: 'Opening', text: 'Provocation: what surprised you about how visitors responded to your exhibit?' },
+      { label: 'Core Activity', text: 'Students share photos and short videos from the exhibit showing how visitors responded, then review and analyze the feedback they collected.' },
+      { label: 'Sensemaking', text: 'Teams debrief: did the exhibit have the impact we intended?' },
+      { label: 'Exit Ticket', text: 'Identify next steps: teams create a preliminary plan for what to improve.' }
+    ]},
+    { day: 'Day 32', num: 32, title: 'Prepare the Final Presentation', summary: 'Students prepare and practice how they\'ll present their findings.', beats: [
+      { label: 'Core Activity', text: 'Students prepare and practice their final presentation to the client.' }
+    ]}
+  ],
+  'crowd-power': [
+    { day: 'Day 13', num: 13, title: 'Test with the Client', summary: 'Students present their safety solution to the NYCLU and have them test it.', beats: [
+      { label: 'Opening', text: 'Provocation: what do you expect the client to notice first about your design?' },
+      { label: 'Core Activity', text: 'Students plan how they\'ll present their solution to the NYCLU, then share their design and rationale, have the client test it through simulations, and collect feedback and data.' }
+    ]},
+    { day: 'Day 14', num: 14, title: 'Reflect on Impact', summary: 'Students analyze feedback and reflect on their solution\'s real-world potential.', beats: [
+      { label: 'Opening', text: 'Provocation: did the client\'s reaction match what you expected?' },
+      { label: 'Core Activity', text: 'Students analyze the data and feedback from testing, discussing the implications of their solution and any recommended improvements.' },
+      { label: 'Sensemaking', text: 'Teams debrief: what happened when the solution was tested in a real scenario, and why?' },
+      { label: 'Exit Ticket', text: 'Homework: a reflection on the solution\'s effectiveness, one idea for improvement, and a claim about its potential to scale.' }
+    ]}
+  ]
+};
+
+function scRenderStrip(project) {
+  const sessions = scSessionData[project];
+  const strip = document.querySelector('[data-project-strip="' + project + '"]');
+  strip.innerHTML = sessions.map((s, i) => `
+    <div class="sc-tile${i === 0 ? ' on' : ''}" data-idx="${i}" onclick="scSelectSession('${project}', ${i})">
+      <div class="sc-tile-day">${s.day}</div>
+      <div class="sc-tile-num">${s.num}</div>
+      <div class="sc-tile-title">${s.title}</div>
+      <div class="sc-tile-pointer"></div>
+    </div>
+  `).join('');
+  scRenderDetail(project, 0);
+}
+
+function scRenderDetail(project, idx) {
+  const s = scSessionData[project][idx];
+  const detail = document.querySelector('[data-project-detail="' + project + '"]');
+  detail.innerHTML = `
+    <div class="sc-detail-title">${s.day}: ${s.title}</div>
+    <div class="sc-detail-summary">${s.summary}</div>
+    ${s.beats.map(b => `<div class="sc-beat"><div class="sc-beat-label">${b.label}</div><div class="sc-beat-text">${b.text}</div></div>`).join('')}
+  `;
+}
+
+function scSelectSession(project, idx) {
+  document.querySelectorAll('[data-project-strip="' + project + '"] .sc-tile').forEach(t => t.classList.remove('on'));
+  document.querySelector('[data-project-strip="' + project + '"] [data-idx="' + idx + '"]').classList.add('on');
+  scRenderDetail(project, idx);
+}
+
+scRenderStrip('peaceful-paws');
+scRenderStrip('nobodys-listening');
+scRenderStrip('crowd-power');
+
+document.querySelectorAll('.sc-project-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sc-project-tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.sc-project-panel').forEach(p => p.classList.remove('on'));
+    tab.classList.add('on');
+    document.getElementById('sc-panel-' + tab.dataset.project).classList.add('on');
+  });
+});
 
 
 

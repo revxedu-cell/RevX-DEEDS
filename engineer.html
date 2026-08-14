@@ -8,6 +8,37 @@
 <link rel="stylesheet" href="revx.css">
 <style>
 :root { --phase-color: var(--engineer); --phase-color-hex: #003da6; }
+
+/* ── SAMPLE ENGINEER PLANS ── */
+.sc-project-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.sc-project-tab { font-family: var(--font-display); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; padding: 8px 16px; background: #fff; border: 1px solid var(--gray-200); cursor: pointer; color: var(--gray-700); }
+.sc-project-tab.on { background: var(--phase-color-hex); border-color: var(--phase-color-hex); color: #fff; }
+.sc-project-panel { display: none; }
+.sc-project-panel.on { display: block; }
+.sc-overview { display: flex; gap: 24px; flex-wrap: wrap; }
+.sc-overview-item { font-size: 13px; color: var(--gray-700); }
+.sc-overview-label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--phase-color-hex); margin-bottom: 2px; }
+.sc-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.sc-tile { flex: 1; min-width: 130px; background: #fff; border: 1px solid var(--gray-200); border-top: 4px solid var(--gray-200); cursor: pointer; padding: 14px 14px 16px; transition: border-color 0.15s, box-shadow 0.15s; position: relative; }
+.sc-tile:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.sc-tile.on { border-top-color: var(--phase-color-hex); background: var(--phase-color-hex); }
+.sc-tile-day { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-500); margin-bottom: 6px; }
+.sc-tile.on .sc-tile-day { color: rgba(255,255,255,0.75); }
+.sc-tile-num { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--gray-900); line-height: 1; margin-bottom: 8px; }
+.sc-tile.on .sc-tile-num { color: #fff; }
+.sc-tile-title { font-size: 12px; font-weight: 600; color: var(--gray-700); line-height: 1.35; }
+.sc-tile.on .sc-tile-title { color: #fff; }
+.sc-tile-pointer { position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 9px solid var(--phase-color-hex); display: none; }
+.sc-tile.on .sc-tile-pointer { display: block; }
+.sc-detail { margin-top: 18px; background: #fff; border: 1px solid var(--phase-color-hex); border-top: 4px solid var(--phase-color-hex); padding: 24px 26px; animation: sc-open 0.2s ease; }
+@keyframes sc-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.sc-detail-title { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--gray-900); margin-bottom: 4px; }
+.sc-detail-summary { font-size: 14px; color: var(--gray-700); margin-bottom: 18px; }
+.sc-beat { display: flex; gap: 12px; margin-bottom: 12px; }
+.sc-beat:last-child { margin-bottom: 0; }
+.sc-beat-label { font-family: var(--font-display); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--phase-color-hex); width: 100px; flex-shrink: 0; padding-top: 2px; }
+.sc-beat-text { font-size: 13px; color: var(--gray-700); line-height: 1.55; }
+@media (max-width: 700px) { .sc-tile { min-width: 92px; } .sc-tile-title { display: none; } .sc-beat { flex-direction: column; gap: 4px; } .sc-beat-label { width: auto; } }
 </style>
 </head>
 <body>
@@ -22,16 +53,11 @@
     </a>
     <div class="site-nav-links">
       <a href="index.html" class="site-nav-link">Home</a>
-      <div class="site-nav-dropdown">
-        <button class="site-nav-dropdown-toggle active" aria-haspopup="true" aria-expanded="false">The Five Phases <span class="dropdown-caret">▾</span></button>
-        <div class="site-nav-dropdown-menu">
-          <a href="discover.html"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
-          <a href="examine.html"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
-          <a href="engineer.html" class="active" aria-current="page"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
-          <a href="do.html"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
-          <a href="share.html"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
-        </div>
-      </div>
+      <a href="discover.html" class="site-nav-link"><span class="phase-dot" style="background:var(--discover)"></span>Discover</a>
+      <a href="examine.html" class="site-nav-link"><span class="phase-dot" style="background:var(--examine)"></span>Examine</a>
+      <a href="engineer.html" class="site-nav-link active" aria-current="page"><span class="phase-dot" style="background:var(--engineer)"></span>Engineer</a>
+      <a href="do.html" class="site-nav-link"><span class="phase-dot" style="background:var(--do)"></span>Do</a>
+      <a href="share.html" class="site-nav-link"><span class="phase-dot" style="background:var(--share)"></span>Share</a>
       <a href="index.html#examples" class="site-nav-link">Examples</a>
     </div>
   </div>
@@ -57,11 +83,37 @@
 
 <nav class="section-subnav" aria-label="Page sections">
   <div class="section-subnav-inner">
-    <button class="snb on" data-t="how">Student Experience</button>
-    <button class="snb" data-t="success">Success Criteria</button>
+    <button class="snb on" data-t="success">Success Criteria</button>
+    <button class="snb" data-t="how">Student Experience</button>
+    <button class="snb" data-t="calendar">Sample Engineer Plans</button>
     <button class="snb" data-t="sold">Science of Learning</button>
   </div>
 </nav>
+
+<section class="full-section" id="success">
+  <div class="container">
+    <span class="eyebrow">By the End</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
+    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Engineer, students should demonstrate growth across three core areas of design and professional construction:</p>
+    <div class="sc-grid">
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Design the Solution</h4></div>
+        <p>Make clear design choices that address a specific root cause, meet defined criteria and constraints, and can be justified with evidence and reasoning.</p>
+        <span class="sc-align">NGSS ETS1-1, ETS1-2 · CCSS W.2, MP.4 · C3 D4.7</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Plan &amp; Build</h4></div>
+        <p>Develop a logical construction sequence, use professional tools and disciplinary methods safely and effectively, and follow the plan while adapting as needed.</p>
+        <span class="sc-align">NGSS SEP 3, ETS1-3 · CCSS W.4 · C3 D4</span>
+      </div>
+      <div class="sc-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Test, Revise &amp; Demonstrate Readiness</h4></div>
+        <p>Test the solution during construction, revise based on feedback and evidence, and demonstrate that it functions as intended and is ready for enactment.</p>
+        <span class="sc-align">NGSS ETS1-3 · CCSS W.5, SL.4 · C3 D4.6</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="how" style="padding-top:52px;">
   <div class="container">
@@ -122,28 +174,60 @@
   </div>
 </section>
 
-<section class="full-section" id="success">
+<!-- ── SAMPLE ENGINEER PLANS ── -->
+<section class="section" id="calendar" style="padding-top:40px;padding-bottom:48px;background:var(--gray-50,#f9fafb);border-top:1px solid var(--gray-200);">
   <div class="container">
-    <span class="eyebrow">By the End</span>
-    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:10px;">Success Criteria</h2>
-    <p style="color:var(--gray-700);max-width:72ch;margin-bottom:28px;">By the end of Engineer, students should demonstrate growth across three core areas of design and professional construction:</p>
-    <div class="sc-grid">
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">1</div><h4>Design the Solution</h4></div>
-        <p>Make clear design choices that address a specific root cause, meet defined criteria and constraints, and can be justified with evidence and reasoning.</p>
-        <span class="sc-align">NGSS ETS1-1, ETS1-2 · CCSS W.2, MP.4 · C3 D4.7</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">2</div><h4>Plan &amp; Build</h4></div>
-        <p>Develop a logical construction sequence, use professional tools and disciplinary methods safely and effectively, and follow the plan while adapting as needed.</p>
-        <span class="sc-align">NGSS SEP 3, ETS1-3 · CCSS W.4 · C3 D4</span>
-      </div>
-      <div class="sc-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><div class="sc-num">3</div><h4>Test, Revise &amp; Demonstrate Readiness</h4></div>
-        <p>Test the solution during construction, revise based on feedback and evidence, and demonstrate that it functions as intended and is ready for enactment.</p>
-        <span class="sc-align">NGSS ETS1-3 · CCSS W.5, SL.4 · C3 D4.6</span>
-      </div>
+    <span class="eyebrow">See It In Action</span>
+    <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:20px;">Sample Engineer Plans</h2>
+
+    <div class="sc-project-tabs">
+      <button class="sc-project-tab on" data-project="peaceful-paws">Peaceful Paws</button>
+      <button class="sc-project-tab" data-project="nobodys-listening">Nobody's Listening</button>
+      <button class="sc-project-tab" data-project="crowd-power">Crowd Power</button>
     </div>
+
+    <div class="sc-project-panel on" id="sc-panel-peaceful-paws">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Peaceful Paws</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>K&ndash;2</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Muddy Paws Rescue</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physical Science &amp; Engineering</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Engineer Duration</span>5 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students design, build, and refine a calming toy for a dog in foster care, choosing materials based on evidence from Examine and testing their design through peer feedback.</p>
+      <div class="sc-strip" data-project-strip="peaceful-paws"></div>
+      <div class="sc-detail" data-project-detail="peaceful-paws"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-nobodys-listening">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Nobody's Listening</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>6</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Nobody's Listening (Ryan D'Souza)</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Social Studies</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Engineer Duration</span>5 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students set criteria for an effective museum exhibit, then build, test, and prepare their interactive map components for visitors.</p>
+      <div class="sc-strip" data-project-strip="nobodys-listening"></div>
+      <div class="sc-detail" data-project-detail="nobodys-listening"></div>
+    </div>
+
+    <div class="sc-project-panel" id="sc-panel-crowd-power">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Crowd Power: The Physics of Protest</h3>
+      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we use physics to help people participate in public demonstrations more safely and effectively?&rdquo;</blockquote>
+      <div class="sc-overview">
+        <div class="sc-overview-item"><span class="sc-overview-label">Grade Band</span>9&ndash;10</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>NYCLU</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physics</div>
+        <div class="sc-overview-item"><span class="sc-overview-label">Engineer Duration</span>4 sessions</div>
+      </div>
+      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;max-width:78ch;margin:14px 0 28px;">Students design, build, and test a physical safety device that reduces the force of crowd collisions, refining their design based on real data from each test.</p>
+      <div class="sc-strip" data-project-strip="crowd-power"></div>
+      <div class="sc-detail" data-project-detail="crowd-power"></div>
+    </div>
+
   </div>
 </section>
 
@@ -257,7 +341,144 @@ NBS.forEach(b => b.addEventListener('click', () => {
 const sectionObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) NBS.forEach(b => b.classList.toggle('on', b.dataset.t === e.target.id)); });
 }, { threshold: 0.15, rootMargin: '-80px 0px -40% 0px' });
-['how','success','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+['success','how','calendar','sold','try'].forEach(id => { const el = document.getElementById(id); if (el) sectionObs.observe(el); });
+
+// Sample Engineer Plans — session data
+const scSessionData = {
+  'peaceful-paws': [
+    { day: 'Day 14', num: 14, title: 'Design and Plan the Solution', summary: 'Students design a calming toy and select materials based on their properties and purpose.', beats: [
+      { label: 'Opening', text: 'What should our toy do to help dogs feel calm?' },
+      { label: 'Core Activity', text: 'Students draw and label a design, choosing materials (soft, flexible, quiet) and explaining how each part will help calm a dog.' },
+      { label: 'Sensemaking', text: 'Does our design match what we learned about materials?' },
+      { label: 'Exit Ticket', text: 'My design helps because...' }
+    ]},
+    { day: 'Day 15', num: 15, title: 'Build (Part 1)', summary: 'Students begin constructing their calming toy using selected materials.', beats: [
+      { label: 'Opening', text: 'What part of our toy will we build today?' },
+      { label: 'Core Activity', text: 'Students begin building their calming toy using their chosen materials and their plan.' },
+      { label: 'Sensemaking', text: 'Is our toy turning out the way we planned?' },
+      { label: 'Exit Ticket', text: 'What we built today.' }
+    ]},
+    { day: 'Day 16', num: 16, title: 'Build, Get Feedback & Refine', summary: 'Students improve their calming toy using peer feedback.', beats: [
+      { label: 'Opening', text: 'How can we make our toy more calming?' },
+      { label: 'Core Activity', text: 'Students try out their toy (touch, sound, movement) to notice how it feels, then trade with another team for feedback and make changes.' },
+      { label: 'Sensemaking', text: 'What does the feedback tell us to change?' },
+      { label: 'Exit Ticket', text: 'One change we made and why.' }
+    ]},
+    { day: 'Day 17', num: 17, title: 'Refine & Prepare for the Real World', summary: 'Students make final improvements and prepare for real-world use of their toy.', beats: [
+      { label: 'Opening', text: 'How will a dog use our toy?' },
+      { label: 'Core Activity', text: 'Students think about how a dog might chew, hold, or play with the toy, then make it safer and easier to use.' },
+      { label: 'Sensemaking', text: 'Is our toy ready for a real dog to try?' },
+      { label: 'Exit Ticket', text: 'One thing we want to see a dog doing with our toy.' }
+    ]},
+    { day: 'Day 18', num: 18, title: 'Finalize the Solution', summary: 'Students explain how their toy is designed to work and how the design changed over time.', beats: [
+      { label: 'Opening', text: 'Is our toy ready? Why or why not?' },
+      { label: 'Core Activity', text: 'Students explain how their materials and design are meant to help dogs feel calm, and what changed along the way.' },
+      { label: 'Sensemaking', text: 'Are we ready to test with a real dog?' },
+      { label: 'Exit Ticket', text: 'Our toy should work because...' }
+    ]}
+  ],
+  'nobodys-listening': [
+    { day: 'Day 25', num: 25, title: 'Set Intended Impact', summary: 'Students meet with their community partner and discuss the impact they want their exhibit to have.', beats: [
+      { label: 'Opening', text: 'Provocation: what do you want a visitor to feel or understand after seeing your exhibit?' },
+      { label: 'Core Activity', text: 'Students meet with Ryan D\'Souza to preview the Engineer phase, then discuss the impact they intend their exhibit to have on visitors.' },
+      { label: 'Sensemaking', text: 'Students connect their intended impact back to the challenge: making sure overlooked conflicts are understood and remembered.' },
+      { label: 'Exit Ticket', text: 'One sentence describing the impact you want your exhibit to have.' }
+    ]},
+    { day: 'Day 26', num: 26, title: 'Define Criteria and Constraints', summary: 'Students tour the exhibition space and set criteria for what makes an effective exhibit.', beats: [
+      { label: 'Opening', text: 'Provocation: think of a museum exhibit that stuck with you. What made it memorable?' },
+      { label: 'Core Activity', text: 'Students tour the exhibition space and discuss what their exhibit needs to include and what constraints they\'re working within, building a shared list of criteria.' },
+      { label: 'Sensemaking', text: 'Teams check their emerging plans against the class criteria list.' },
+      { label: 'Exit Ticket', text: 'Teams begin developing their own exhibit plans.' }
+    ]},
+    { day: 'Day 27', num: 27, title: 'Develop Exhibit Plans', summary: 'Students continue developing their exhibit plans and exchange feedback.', beats: [
+      { label: 'Opening', text: 'Provocation: what part of your plan are you least sure about?' },
+      { label: 'Core Activity', text: 'Teams continue developing their exhibit plans, then trade plans with another team for feedback.' },
+      { label: 'Sensemaking', text: 'Teams discuss how the feedback changes their plan.' },
+      { label: 'Exit Ticket', text: 'One change you\'ll make to your plan based on feedback.' }
+    ]},
+    { day: 'Day 28', num: 28, title: 'Build Exhibit Components', summary: 'Students build and set up their exhibit components.', beats: [
+      { label: 'Opening', text: 'Provocation: what\'s the trickiest part of turning your plan into something real?' },
+      { label: 'Core Activity', text: 'Teams build and set up their exhibit components in the exhibition space.' },
+      { label: 'Sensemaking', text: 'Teams check their built components against their original criteria.' },
+      { label: 'Exit Ticket', text: 'One thing that turned out differently than planned, and why.' }
+    ]},
+    { day: 'Day 29', num: 29, title: 'Plan for Visitors', summary: 'Students plan how they\'ll collect data from visitors and assign roles for hosting the exhibit.', beats: [
+      { label: 'Opening', text: 'Provocation: how will we know if our exhibit actually worked?' },
+      { label: 'Core Activity', text: 'Students develop a plan for collecting data about the exhibit\'s impact, then assign roles for welcoming visitors, guiding their experience, and gathering feedback.' },
+      { label: 'Sensemaking', text: 'Teams check that their data plan will actually tell them whether they achieved their intended impact.' },
+      { label: 'Exit Ticket', text: 'Identify next steps: what do you need to be ready for visitors?' }
+    ]}
+  ],
+  'crowd-power': [
+    { day: 'Day 9', num: 9, title: 'Plan the Build', summary: 'Students combine their design ideas into a shared plan and prepare to build.', beats: [
+      { label: 'Opening', text: 'Provocation: what tradeoffs will we have to make between cost, weight, and safety?' },
+      { label: 'Core Activity', text: 'Teams learn methods for testing their design (drop testing, force sensors, damage assessment), then combine their ideas into a step-by-step plan with a materials list and roles.' },
+      { label: 'Sensemaking', text: 'Teams get feedback from another team and discuss how their solution addresses equity and justice in protest safety.' },
+      { label: 'Exit Ticket', text: 'Identify next steps: what does your team need to do first to start building?' }
+    ]},
+    { day: 'Day 10', num: 10, title: 'Build and Test', summary: 'Students begin building and testing their prototype.', beats: [
+      { label: 'Opening', text: 'Provocation: what result would tell you your design is working?' },
+      { label: 'Core Activity', text: 'Teams build a prototype, then test it by simulating crowd-force impact and checking whether it reduced force, extended impact time, and met their design criteria.' },
+      { label: 'Sensemaking', text: 'Teams stress-test their solution against their original criteria: does it do what we need it to do?' },
+      { label: 'Exit Ticket', text: 'Claim with evidence: identify one way to improve your design &mdash; reducing mass, increasing time, reducing cost, or improving portability.' }
+    ]},
+    { day: 'Day 11', num: 11, title: 'Continue Building and Testing', summary: 'Students continue their build-and-test cycle, refining their prototype.', beats: [
+      { label: 'Opening', text: 'Provocation: what did yesterday\'s test tell us to change?' },
+      { label: 'Core Activity', text: 'Teams continue building, testing, and refining their prototype based on what they learned from each test.' },
+      { label: 'Sensemaking', text: 'Teams compare this round of test results to the last, checking whether their changes actually improved the design.' },
+      { label: 'Exit Ticket', text: 'Identify next steps: what\'s the next thing to test or change?' }
+    ]},
+    { day: 'Day 12', num: 12, title: 'Finalize the Design', summary: 'Students complete their build-and-test cycle and prepare to explain their design decisions.', beats: [
+      { label: 'Opening', text: 'Provocation: if you had to defend one design choice to the NYCLU, which would it be?' },
+      { label: 'Core Activity', text: 'Teams complete their final round of building, testing, and refining.' },
+      { label: 'Sensemaking', text: 'Teams stress-test their final design one more time: does it meet every criterion they set at the start?' },
+      { label: 'Exit Ticket', text: 'Homework: an engineering memo explaining the problem, the design solution, and how testing shaped their final choices.' }
+    ]}
+  ]
+};
+
+function scRenderStrip(project) {
+  const sessions = scSessionData[project];
+  const strip = document.querySelector('[data-project-strip="' + project + '"]');
+  strip.innerHTML = sessions.map((s, i) => `
+    <div class="sc-tile${i === 0 ? ' on' : ''}" data-idx="${i}" onclick="scSelectSession('${project}', ${i})">
+      <div class="sc-tile-day">${s.day}</div>
+      <div class="sc-tile-num">${s.num}</div>
+      <div class="sc-tile-title">${s.title}</div>
+      <div class="sc-tile-pointer"></div>
+    </div>
+  `).join('');
+  scRenderDetail(project, 0);
+}
+
+function scRenderDetail(project, idx) {
+  const s = scSessionData[project][idx];
+  const detail = document.querySelector('[data-project-detail="' + project + '"]');
+  detail.innerHTML = `
+    <div class="sc-detail-title">${s.day}: ${s.title}</div>
+    <div class="sc-detail-summary">${s.summary}</div>
+    ${s.beats.map(b => `<div class="sc-beat"><div class="sc-beat-label">${b.label}</div><div class="sc-beat-text">${b.text}</div></div>`).join('')}
+  `;
+}
+
+function scSelectSession(project, idx) {
+  document.querySelectorAll('[data-project-strip="' + project + '"] .sc-tile').forEach(t => t.classList.remove('on'));
+  document.querySelector('[data-project-strip="' + project + '"] [data-idx="' + idx + '"]').classList.add('on');
+  scRenderDetail(project, idx);
+}
+
+scRenderStrip('peaceful-paws');
+scRenderStrip('nobodys-listening');
+scRenderStrip('crowd-power');
+
+document.querySelectorAll('.sc-project-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.sc-project-tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.sc-project-panel').forEach(p => p.classList.remove('on'));
+    tab.classList.add('on');
+    document.getElementById('sc-panel-' + tab.dataset.project).classList.add('on');
+  });
+});
 
 
 
