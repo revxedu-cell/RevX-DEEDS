@@ -10,11 +10,14 @@
 :root { --phase-color: var(--examine); --phase-color-hex: #0a9b19; }
 
 /* ── SAMPLE EXAMINE PLANS ── */
-.sc-project-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-.sc-project-tab { font-family: var(--font-display); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; padding: 8px 16px; background: #fff; border: 1px solid var(--gray-200); cursor: pointer; color: var(--gray-700); }
-.sc-project-tab.on { background: var(--phase-color-hex); border-color: var(--phase-color-hex); color: #fff; }
-.sc-project-panel { display: none; }
-.sc-project-panel.on { display: block; }
+.sc-project-card { border: 1px solid var(--gray-200); margin-bottom: 10px; background: #fff; overflow: hidden; }
+.sc-project-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--gray-900); }
+.sc-project-toggle:hover { background: var(--gray-50, #fafafa); }
+.sc-project-toggle-arrow { font-size: 14px; color: var(--gray-400); transition: transform 0.2s; flex-shrink: 0; }
+.sc-project-card.open .sc-project-toggle-arrow { transform: rotate(180deg); }
+.sc-project-card.open .sc-project-toggle { border-bottom: 1px solid var(--gray-200); }
+.sc-project-body { display: none; padding: 24px 24px 28px; }
+.sc-project-card.open .sc-project-body { display: block; }
 .sc-overview { display: flex; gap: 24px; flex-wrap: wrap; }
 .sc-overview-item { font-size: 13px; color: var(--gray-700); }
 .sc-overview-label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--phase-color-hex); margin-bottom: 2px; }
@@ -84,7 +87,8 @@
       </div>
       <div style="background:rgba(0,0,0,0.28);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:20px 22px;">
         <div style="display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff;background:var(--phase-color-hex);padding:4px 10px;border-radius:20px;margin-bottom:12px;">Grounded in the Science of Learning</div>
-        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0;">Chunking the challenge into distinct steps supports <strong>manageable cognitive load</strong>, and connecting new content to firsthand experience strengthens <strong>meaningful encoding</strong>. Along the way, students build <strong>effective practice</strong> and exercise <strong>sense of control</strong> over their own questions.</p>
+        <p style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);line-height:1.6;margin:0 0 12px;">Chunking the challenge into distinct steps supports <strong>manageable cognitive load</strong>, and connecting new content to firsthand experience strengthens <strong>meaningful encoding</strong>. Along the way, students build <strong>effective practice</strong> and exercise <strong>sense of control</strong> over their own questions.</p>
+        <a href="https://docs.google.com/document/d/1K7B20UXGLjAM5kBmDsQS3a-mtmjwxmLknd1SOKNEjRw/edit?tab=t.0#heading=h.s58hxldxtnpq" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#fff;text-decoration:underline;">Learn more &rarr;</a>
       </div>
     </div>
   </div>
@@ -179,14 +183,12 @@
     <span class="eyebrow">See It In Action</span>
     <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:20px;">Sample Examine Plans</h2>
 
-    <div class="sc-project-tabs">
-      <button class="sc-project-tab on" data-project="peaceful-paws">Peaceful Paws (K&ndash;2)</button>
-      <button class="sc-project-tab" data-project="nobodys-listening">Nobody's Listening (6&ndash;8)</button>
-      <button class="sc-project-tab" data-project="crowd-power">Crowd Power (9&ndash;10)</button>
-    </div>
-
-    <div class="sc-project-panel on" id="sc-panel-peaceful-paws">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Peaceful Paws</h3>
+    <div class="sc-project-card open" id="sc-panel-peaceful-paws">
+      <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="true">
+        Peaceful Paws (K&ndash;2)
+        <span class="sc-project-toggle-arrow">&#9662;</span>
+      </button>
+      <div class="sc-project-body">
       <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?&rdquo;</blockquote>
       <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Muddy Paws Rescue</div>
         <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physical Science &amp; Engineering</div>
@@ -195,10 +197,15 @@
       <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">Students investigate the science behind dog anxiety, observing and testing materials, classifying their properties, and analyzing evidence to determine which materials are best suited for a calming toy.</p>
       <div class="sc-strip" data-project-strip="peaceful-paws"></div>
       <div class="sc-detail" data-project-detail="peaceful-paws"></div>
+      </div>
     </div>
 
-    <div class="sc-project-panel" id="sc-panel-nobodys-listening">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Nobody's Listening</h3>
+    <div class="sc-project-card" id="sc-panel-nobodys-listening">
+      <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="false">
+        Nobody's Listening (6&ndash;8)
+        <span class="sc-project-toggle-arrow">&#9662;</span>
+      </button>
+      <div class="sc-project-body">
       <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?&rdquo;</blockquote>
       <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Nobody's Listening (Ryan D'Souza)</div>
         <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Social Studies</div>
@@ -207,10 +214,15 @@
       <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">Students build map literacy, then research their region's conflict across three cycles: establishing geographic context, investigating historical roots, and identifying the deeper factors that keep the conflict going.</p>
       <div class="sc-strip" data-project-strip="nobodys-listening"></div>
       <div class="sc-detail" data-project-detail="nobodys-listening"></div>
+      </div>
     </div>
 
-    <div class="sc-project-panel" id="sc-panel-crowd-power">
-      <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--gray-900);margin-bottom:12px;">Crowd Power: The Physics of Protest</h3>
+    <div class="sc-project-card" id="sc-panel-crowd-power">
+      <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="false">
+        Crowd Power (9&ndash;10): The Physics of Protest
+        <span class="sc-project-toggle-arrow">&#9662;</span>
+      </button>
+      <div class="sc-project-body">
       <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we use physics to help people participate in public demonstrations more safely and effectively?&rdquo;</blockquote>
       <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>NYCLU</div>
         <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physics</div>
@@ -219,6 +231,7 @@
       <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">Students use Newton's Laws, momentum, and impulse to explain how people and objects move and collide in crowded spaces, applying their understanding to evaluate safety risks and begin designing a solution.</p>
       <div class="sc-strip" data-project-strip="crowd-power"></div>
       <div class="sc-detail" data-project-detail="crowd-power"></div>
+      </div>
     </div>
 
   </div>
@@ -532,7 +545,7 @@ const scSessionData = {
       { label: 'Collaborative Reading', text: '<a href="https://docs.google.com/document/d/1E8Gkj9_fyipIb8TIFEDv_7oMB-tAO6kkqumkefGfXWw/edit" target="_blank">Comparing Different Types of Maps</a>' },
       { label: 'Opening', text: 'Provocation: What questions do you want to ask your classmates about borders and conflict?' },
       { label: 'Core Activity', text: 'Students complete their region overview, then prepare for next week\'s discussion by reflecting on how borders shape the lives of people living near them.' },
-      { label: 'Sensemaking', text: 'Students connect their evidence to why this conflict deserves to be remembered, not just researched.' },
+      { label: 'Sensemaking', text: 'Students connect their evidence to why this conflict deserves to be remembered.' },
       { label: 'Exit Ticket', text: 'One claim you want to bring to the discussion, with evidence.' }
     ]},
     { day: 'Day 16', num: 16, title: 'Discuss Multiple Viewpoints', summary: 'Students discuss competing viewpoints on their conflict, following shared discussion norms.', beats: [
@@ -604,7 +617,7 @@ const scSessionData = {
       { label: 'Opening', text: 'Provocation: roll a cart or water jug into a chair at different masses or speeds. Which was harder to stop? If this were a person in a crowd, what could go wrong?' },
       { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson introduces Newton\'s Second Law and momentum: more mass or speed means an object is harder to stop. Students then rotate through hands-on stations exploring what happens when people move, collide, or get compressed in a crowd.' },
-      { label: 'Sensemaking', text: 'Students connect what they observed to a real question: how could this law help make crowds safer?' },
+      { label: 'Sensemaking', text: 'Students connect what they observed to a question: how could this law help make crowds safer?' },
       { label: 'Exit Ticket', text: 'Explain in your own words: why does more mass or speed make something harder to stop?' }
     ]},
     { day: 'Day 4', num: 4, title: 'Apply Newton\'s Third Law', summary: 'Students learn about action-reaction forces and apply their understanding to a real-world transfer task.', beats: [
@@ -625,7 +638,7 @@ const scSessionData = {
       { label: 'Opening', text: 'Provocation: in a collision, where does the momentum go?' },
       { label: 'Collaborative Science', text: 'The Physics of Protest: Understanding Crowd Movement and Stampede Dynamics' },
       { label: 'Core Activity', text: 'A short lesson explains that in a closed system, total momentum stays the same before and after a collision. Students continue their station investigations, then apply the idea to a paired transfer task.' },
-      { label: 'Sensemaking', text: 'Students connect conservation of momentum back to real crowd scenarios like pileups or people bumping into each other.' },
+      { label: 'Sensemaking', text: 'Students connect conservation of momentum back to crowd scenarios like pileups or people bumping into each other.' },
       { label: 'Exit Ticket', text: 'Homework: a memo to the NYCLU on how to reduce harm from moving crowds.' }
     ]},
     { day: 'Day 7', num: 7, title: 'Apply Impulse to Safety Design', summary: 'Students learn how increasing impact time reduces force, the key idea behind engineering safer collisions.', beats: [
@@ -678,15 +691,18 @@ scRenderStrip('peaceful-paws');
 scRenderStrip('nobodys-listening');
 scRenderStrip('crowd-power');
 
-// Sample Examine Plans project tabs
-document.querySelectorAll('.sc-project-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.sc-project-tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.sc-project-panel').forEach(p => p.classList.remove('on'));
-    tab.classList.add('on');
-    document.getElementById('sc-panel-' + tab.dataset.project).classList.add('on');
+// Sample Calendar project accordion
+function scToggleProject(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.sc-project-card').forEach(c => {
+    c.classList.remove('open');
+    c.querySelector('.sc-project-toggle').setAttribute('aria-expanded', 'false');
   });
-});
+  if (!wasOpen) {
+    card.classList.add('open');
+    card.querySelector('.sc-project-toggle').setAttribute('aria-expanded', 'true');
+  }
+}
 </script>
 </body>
 </html>
