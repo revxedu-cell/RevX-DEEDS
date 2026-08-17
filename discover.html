@@ -12,12 +12,16 @@
 
 /* ── SAMPLE CALENDAR ── */
 .sc-project-card { border: 1px solid var(--gray-200); margin-bottom: 10px; background: #fff; overflow: hidden; }
-.sc-project-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--gray-900); }
+.sc-project-toggle { width: 100%; display: flex; align-items: center; gap: 16px; padding: 14px 20px; background: none; border: none; cursor: pointer; text-align: left; }
 .sc-project-toggle:hover { background: var(--gray-50, #fafafa); }
+.sc-project-thumb { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.sc-project-toggle-text { flex: 1; min-width: 0; }
+.sc-project-toggle-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--gray-900); margin-bottom: 2px; }
+.sc-project-toggle-desc { font-size: 12.5px; color: var(--gray-700); line-height: 1.4; }
 .sc-project-toggle-arrow { font-size: 14px; color: var(--gray-400); transition: transform 0.2s; flex-shrink: 0; }
 .sc-project-card.open .sc-project-toggle-arrow { transform: rotate(180deg); }
 .sc-project-card.open .sc-project-toggle { border-bottom: 1px solid var(--gray-200); }
-.sc-project-body { display: none; padding: 24px 24px 28px; }
+.sc-project-body { display: none; padding: 20px 20px 24px; }
 .sc-project-card.open .sc-project-body { display: block; }
 .sc-overview { display: flex; gap: 24px; flex-wrap: wrap; }
 .sc-overview-item { font-size: 13px; color: var(--gray-700); }
@@ -205,66 +209,48 @@
     <span class="eyebrow">See It In Action</span>
     <h2 style="color:var(--gray-900);text-shadow:none;margin-bottom:20px;">Sample Discover Plans</h2>
 
-    <div class="sc-project-card open" id="sc-panel-peaceful-paws">
-      <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="true">
-        Peaceful Paws (K&ndash;2)
+    <div class="sc-project-card" id="sc-panel-peaceful-paws">
+      <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="false">
+        <img class="sc-project-thumb" src="https://images.unsplash.com/photo-1604606363386-dd3f2357ad87?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A dog in foster care" loading="lazy">
+        <div class="sc-project-toggle-text">
+          <div class="sc-project-toggle-title">Peaceful Paws (K&ndash;2)</div>
+          <div class="sc-project-toggle-desc">Students meet rescue dogs from Muddy Paws and learn how anxious behaviors can impact dogs' likelihood of being adopted.</div>
+        </div>
         <span class="sc-project-toggle-arrow">&#9662;</span>
       </button>
       <div class="sc-project-body">
-
-      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we design a safe and calming toy that helps dogs in foster care feel more comfortable while they wait to be adopted?&rdquo;</blockquote>
-
-      <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Muddy Paws Rescue</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physical Science &amp; Engineering</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Discover Duration</span>5 sessions</div>
-      </div>
-      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">Muddy Paws Rescue cares for dogs through a network of foster homes while helping them find permanent families. Some dogs may feel nervous, overstimulated, or uncertain as they adjust to new people, places, routines, and adoption experiences. Muddy Paws asked students to help design something that could help dogs feel calmer while they wait to be adopted.</p>
-
       <div class="sc-strip" data-project-strip="peaceful-paws"></div>
       <div class="sc-detail" data-project-detail="peaceful-paws"></div>
-
       </div>
     </div>
 
     <div class="sc-project-card" id="sc-panel-nobodys-listening">
       <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="false">
-        Nobody's Listening (6&ndash;8)
+        <img class="sc-project-thumb" src="https://images.unsplash.com/photo-1757745911574-ab11b6ef6188?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A visitor looking closely at a vase in a museum exhibit" loading="lazy">
+        <div class="sc-project-toggle-text">
+          <div class="sc-project-toggle-title">Nobody's Listening (6&ndash;8)</div>
+          <div class="sc-project-toggle-desc">Students experience an immersive VR exhibit and documentary about a real conflict, then meet with a human rights advocate to understand why raising awareness matters.</div>
+        </div>
         <span class="sc-project-toggle-arrow">&#9662;</span>
       </button>
       <div class="sc-project-body">
-
-      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we help people understand the human impact of conflict so that stories that are often overlooked are not forgotten?&rdquo;</blockquote>
-
-      <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>Nobody's Listening (Ryan D'Souza)</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Social Studies</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Discover Duration</span>5 sessions</div>
-      </div>
-      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">Nobody's Listening asked students to help build an exhibit that helps visitors understand and connect with the human impact of conflicts most people know little about. Working in cycles, students develop the first part of the exhibit: interactive experiences that help visitors see the people and places behind conflicts in the Eastern Hemisphere, so their stories are not forgotten.</p>
-
       <div class="sc-strip" data-project-strip="nobodys-listening"></div>
       <div class="sc-detail" data-project-detail="nobodys-listening"></div>
-
       </div>
     </div>
 
     <div class="sc-project-card" id="sc-panel-crowd-power">
       <button class="sc-project-toggle" onclick="scToggleProject(this.closest('.sc-project-card'))" aria-expanded="false">
-        Crowd Power (9&ndash;10): The Physics of Protest
+        <img class="sc-project-thumb" src="https://images.unsplash.com/photo-1706677258631-43968c883b6d?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="A large crowd of people walking down a busy street" loading="lazy">
+        <div class="sc-project-toggle-text">
+          <div class="sc-project-toggle-title">Crowd Power (9&ndash;10)</div>
+          <div class="sc-project-toggle-desc">Students reflect on personal experiences with crowds and investigate data on protest injuries to understand why crowd movement can turn dangerous.</div>
+        </div>
         <span class="sc-project-toggle-arrow">&#9662;</span>
       </button>
       <div class="sc-project-body">
-
-      <blockquote style="font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--gray-900);border-left:3px solid var(--phase-color-hex);padding-left:16px;margin:0 0 20px;max-width:70ch;line-height:1.4;">&ldquo;How can we use physics to help people participate in public demonstrations more safely and effectively?&rdquo;</blockquote>
-
-      <div class="sc-overview">        <div class="sc-overview-item"><span class="sc-overview-label">Community Partner</span>NYCLU</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Content Area</span>Physics</div>
-        <div class="sc-overview-item"><span class="sc-overview-label">Discover Duration</span>2 sessions</div>
-      </div>
-      <p style="font-size:14px;color:var(--gray-700);line-height:1.6;margin:14px 0 28px;">When large groups gather to march, speak out, or demand justice, things can get risky, especially when space is tight, emotions run high, and systems aren't designed with safety in mind. The NYCLU asked students to investigate protest dynamics and design solutions that help people move together more safely during collective action.</p>
-
       <div class="sc-strip" data-project-strip="crowd-power"></div>
       <div class="sc-detail" data-project-detail="crowd-power"></div>
-
       </div>
     </div>
   </div>
