@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence of Learning — Do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --phase: #FFB600;
+  --phase-light: rgba(255,182,0,0.1);
+  --phase-border: rgba(255,182,0,0.35);
+  --text: #1a1a1a;
+  --text-mid: #555;
+  --gray-100: #f5f5f5;
+  --gray-200: #e8e8e8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #f5f4f2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 16px 48px; }
+.topbar { width: 100%; max-width: 680px; display: flex; align-items: center; justify-content: space-between; padding: 14px 0; margin-bottom: 8px; }
+.back-btn { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--phase); text-decoration: none; text-transform: uppercase; }
+.back-btn:hover { opacity: .75; }
+.band-toggle { display: flex; gap: 4px; }
+.tb { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 5px 12px; border: 1.5px solid var(--gray-200); background: white; color: var(--text-mid); cursor: pointer; border-radius: 0; transition: all .15s; }
+.tb.active { background: var(--phase); border-color: var(--phase); color: #1a1a1a; }
+.card { width: 100%; max-width: 680px; background: white; box-shadow: 0 2px 20px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.04); overflow: hidden; margin-bottom: 16px; }
+.card-header { display: flex; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--gray-200); }
+.phase-pill { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .15em; color: #1a1a1a; background: var(--phase); padding: 4px 10px; margin-right: 10px; }
+.type-badge { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: .1em; padding: 4px 10px; background: var(--phase-light); color: var(--phase); text-transform: uppercase; }
+.card-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: var(--text); padding: 20px 24px 4px; line-height: 1.1; }
+.intro { font-size: 13.5px; color: var(--text-mid); line-height: 1.55; padding: 8px 24px 24px; border-bottom: 1px solid var(--gray-200); }
+.sc-section { padding: 20px 24px; border-bottom: 1px solid var(--gray-200); background: var(--phase-light); }
+.sc-label { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--phase); text-transform: uppercase; margin-bottom: 12px; }
+.sc-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+.sc-item:last-child { margin-bottom: 0; }
+.sc-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--phase); color: #1a1a1a; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.sc-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+.sc-desc { font-size: 12px; color: var(--text-mid); line-height: 1.45; }
+.prompts-label { font-size: 13px; color: var(--text-mid); line-height: 1.55; padding: 16px 24px 0; font-style: italic; }
+.prompts-section { padding: 16px 24px 24px; }
+.band-prompts { display: none; }
+.band-prompts.active { display: block; }
+.prompt-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--gray-200); }
+.prompt-item:last-child { border-bottom: none; }
+.prompt-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--phase-light); border: 1.5px solid var(--phase-border); color: var(--phase); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.prompt-text { font-size: 15px; color: var(--text); line-height: 1.5; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-btn" href="../do.html">← Do</a>
+  <div class="band-toggle">
+    <button class="tb active" onclick="setBand('k2',this)">K&ndash;2</button>
+    <button class="tb" onclick="setBand('35',this)">3&ndash;5</button>
+    <button class="tb" onclick="setBand('68',this)">6&ndash;8</button>
+    <button class="tb" onclick="setBand('912',this)">9&ndash;12</button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <span class="phase-pill">DO</span>
+    <span class="type-badge">Evidence of Learning</span>
+  </div>
+  <div class="card-title">Evidence of Learning</div>
+  <div class="intro">Students are ready to move on from Do when they can demonstrate the following:</div>
+  <div class="sc-section">
+    <div class="sc-label">Success Criteria</div>
+    <div class="sc-item"><div class="sc-num">1</div><div><div class="sc-title">Enact a Solution</div><div class="sc-desc">Implement the solution with real users, systems, or environments; document the process; and adapt when real-world conditions require it.</div></div></div><div class="sc-item"><div class="sc-num">2</div><div><div class="sc-title">Collect &amp; Use Evidence</div><div class="sc-desc">Gather relevant data about impact and effectiveness using appropriate tools — measurements, observations, surveys — and organize findings clearly.</div></div></div><div class="sc-item"><div class="sc-num">3</div><div><div class="sc-title">Evaluate Impact &amp; Effectiveness</div><div class="sc-desc">Use evidence to explain what worked, what didn’t, and why — identifying limitations, tradeoffs, unintended consequences, and meaningful next steps.</div></div></div>
+  </div>
+  <div class="prompts-label">Students should be able to respond thoroughly and thoughtfully to the following prompts:</div>
+<div class="prompts-section">
+<div class="band-prompts active" id="bp-k2"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What happened when you tried your solution? Did it help?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What did you find out? What surprised you?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What would you change if you tried again?</div></div></div>
+<div class="band-prompts" id="bp-35"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Did your solution work? What evidence shows it helped — or didn’t?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What happened that you didn’t expect? Why do you think that happened?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What would you improve or do differently next time?</div></div></div>
+<div class="band-prompts" id="bp-68"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">What did the evidence show about your solution’s impact? Use data or observations to support your analysis.</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What worked, what didn’t, and why? Explain at least one limitation or unexpected result.</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What improvements or next steps would make the solution more effective?</div></div></div>
+<div class="band-prompts" id="bp-912"><div class="prompt-item"><div class="prompt-num">1</div><div class="prompt-text">Evaluate your solution’s impact: what does the evidence show about effectiveness, and how confident are you in these findings?</div></div><div class="prompt-item"><div class="prompt-num">2</div><div class="prompt-text">What tradeoffs, limitations, or unintended consequences did you encounter? How do they affect your conclusions?</div></div><div class="prompt-item"><div class="prompt-num">3</div><div class="prompt-text">What should happen next? Make an evidence-based recommendation for how the solution could be improved or scaled.</div></div></div>
+
+  </div>
+</div>
+<script>
+function setBand(band, btn) {
+  document.querySelectorAll('.band-prompts').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('active'));
+  document.getElementById('bp-' + band).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
